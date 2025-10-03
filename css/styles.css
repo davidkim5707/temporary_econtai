@@ -1,0 +1,240 @@
+/* ============================================
+   EconTAI - Main Stylesheet
+   Economics of Transformative AI Initiative
+   University of Virginia
+   ============================================ */
+
+/* CSS Variables - UVA Brand Colors */
+:root {
+    --uva-navy: #232D4B;
+    --uva-orange: #E57200;
+    --uva-orange-dark: #c25e00;
+    --text-dark: #333;
+    --text-gray: #666;
+    --bg-light: #f8f9fa;
+    --bg-white: #fff;
+    --bg-dark: #1a1a1a;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+    --shadow-md: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-lg: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   Global Styles & Reset
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Franklin Gothic', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
+nav {
+    background-color: var(--uva-navy) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff !important;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ffffff !important;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid var(--uva-orange);
+    padding-bottom: 0.25rem;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+    background-color: var(--uva-navy) !important;
+    color: white !important;
+    padding: 6rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    display: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff !important;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffffff !important;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--uva-orange) !important;
+    font-weight: 500;
+}
+
+.hero .lead {
+    font-size: 1.1rem;
+    max-width: 800px;
+    line-height: 1.8;
+    color: #ffffff !important;
+}
+
+.hero .institution {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #ffffff !important;
+}
+
+/* ============================================
+   Page Headers (for individual pages)
+   ============================================ */
+
+.page-header {
+    background-color: var(--uva-navy);
+    color: white;
+    padding: 4rem 0 3rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   Section Styling
+   ============================================ */
+
+section {
+    padding: 4rem 0;
+}
+
+section:nth-child(even) {
+    background: var(--bg-light);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--uva-navy);
+    text-align: center;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--uva-navy);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+footer {
+    background: var(--bg-dark) !important;
+    color: #ffffff !important;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer p {
+    opacity: 0.8;
+    color: #ffffff !important;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}

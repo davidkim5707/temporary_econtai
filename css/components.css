@@ -1,0 +1,292 @@
+/* ============================================
+   EconTAI - Component Styles
+   Reusable component styling across pages
+   ============================================ */
+
+/* ============================================
+   Mission & Vision Cards
+   ============================================ */
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.mission-card {
+    padding: 2rem;
+    background: white;
+    border-left: 4px solid var(--uva-orange);
+    box-shadow: var(--shadow-md);
+}
+
+.mission-card h3 {
+    color: var(--uva-navy);
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   Objectives List
+   ============================================ */
+
+.objectives-list {
+    counter-reset: objective-counter;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.objective {
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    counter-increment: objective-counter;
+}
+
+.objective::before {
+    content: counter(objective-counter);
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    background: var(--uva-navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.objective strong {
+    color: var(--uva-navy);
+}
+
+/* ============================================
+   Faculty Cards
+   ============================================ */
+
+.faculty {
+    background: var(--bg-white);
+    padding: 4rem 0;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faculty-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.faculty-card h4 {
+    color: var(--uva-navy);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.faculty-card .role {
+    color: var(--uva-orange);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.faculty-card .department {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Research Areas
+   ============================================ */
+
+.research-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.research-card {
+    background: white;
+    border: 2px solid var(--uva-navy);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.research-card:hover {
+    background: var(--uva-navy);
+    color: white;
+}
+
+.research-card:hover h4 {
+    color: var(--uva-orange);
+}
+
+.research-card:hover ul {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.research-card h4 {
+    color: var(--uva-navy);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.research-card ul {
+    list-style: none;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.research-card ul li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Contact Section
+   ============================================ */
+
+.contact {
+    background-color: var(--uva-navy) !important;
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.contact h2 {
+    color: white !important;
+    margin-bottom: 2rem;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #ffffff !important;
+}
+
+.email-signup {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.email-signup p {
+    color: #ffffff !important;
+}
+
+.email-signup h3 {
+    color: var(--uva-orange) !important;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.email-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.email-form input[type="email"] {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.email-form button {
+    padding: 0.75rem 2rem;
+    background: var(--uva-orange);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.email-form button:hover {
+    background: var(--uva-orange-dark);
+}
+
+.email-form button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    color: white;
+    opacity: 0.7;
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+}
+
+.contact-info p {
+    color: #ffffff !important;
+}
+
+.contact-info strong {
+    color: #ffffff !important;
+}
+
+.contact-info a {
+    color: var(--uva-orange) !important;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Responsive - Components
+   ============================================ */
+
+@media (max-width: 768px) {
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .email-form {
+        flex-direction: column;
+    }
+
+    .email-form input[type="email"] {
+        width: 100%;
+    }
+}
