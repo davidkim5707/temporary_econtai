@@ -47,45 +47,120 @@ body {
 }
 
 /* ============================================
-   Navigation
+   Header Wrapper - Sticky Container for Both Tiers
    ============================================ */
 
-nav {
-    background-color: var(--uva-navy) !important;
+.header-wrapper {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: var(--uva-navy);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-nav .container {
+/* ============================================
+   University Banner - Top Tier
+   ============================================ */
+
+.university-banner {
+    background-color: var(--uva-navy);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
+}
+
+.university-link {
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: opacity 0.3s;
+}
+
+.university-link:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
+   Main Lab Navigation - Second Tier
+   ============================================ */
+
+.lab-navigation {
+    background-color: var(--uva-navy) !important;
+}
+
+.nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 1.25rem 0 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff !important;
-    letter-spacing: 1px;
+.lab-branding {
+    flex: 1;
+}
+
+.lab-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    letter-spacing: 0.5px;
+}
+
+.lab-name a {
+    color: white !important;
     text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.lab-name a:hover {
+    opacity: 0.9;
+}
+
+.lab-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.nav-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-toggle,
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: opacity 0.3s;
+}
+
+.search-toggle:hover,
+.menu-toggle:hover {
+    opacity: 0.7;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+    padding: 1rem 0;
+    margin: 0;
 }
 
 .nav-links a {
     color: #ffffff !important;
     text-decoration: none;
     transition: opacity 0.3s;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
@@ -172,11 +247,11 @@ nav .container {
 }
 
 /* ============================================
-   Section Styling
+   Section Styling - Stanford DEL Style
    ============================================ */
 
 section {
-    padding: 4rem 0;
+    padding: 6rem 0;
 }
 
 section:nth-child(even) {
@@ -184,17 +259,49 @@ section:nth-child(even) {
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
     color: var(--uva-navy);
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 2rem 0 1rem;
     color: var(--uva-navy);
+    font-weight: 600;
+}
+
+/* ============================================
+   Links & Buttons - Stanford DEL Style
+   ============================================ */
+
+a {
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--uva-orange);
+    color: white !important;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(229, 114, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--uva-orange-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 114, 0, 0.4);
 }
 
 /* ============================================
@@ -236,5 +343,81 @@ footer p {
 
     h2 {
         font-size: 2rem;
+    }
+}
+
+/* Dropdown Menu Styles */
+.nav-links .dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--uva-navy);
+    min-width: 200px;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #ffffff !important;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    font-size: 0.85rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(229, 114, 0, 0.2);
+    opacity: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-header {
+        flex-direction: row;
+    }
+
+    .lab-name {
+        font-size: 1.3rem;
+    }
+
+    .lab-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        margin-top: 0;
+        background-color: rgba(35, 45, 75, 0.95);
     }
 }

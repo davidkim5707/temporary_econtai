@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact EconTAI - Get in touch with our team, explore collaboration opportunities, and find our location.">
+    <title>Contact Us | EconTAI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with the EconTAI team</p>
+        </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- Contact Info Box -->
+                <div style="background: #232D4B; color: white; padding: 3rem; border-radius: 8px; margin-bottom: 3rem; text-align: center;">
+                    <h2 style="color: #E57200 !important; margin-bottom: 1.5rem;">Get In Touch</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">For more information or to discuss partnership opportunities:</p>
+
+                    <p style="margin-bottom: 0.5rem;"><strong>Professor Anton Korinek</strong></p>
+                    <p style="margin-bottom: 0.5rem;">Faculty Director</p>
+                    <p style="margin-bottom: 1.5rem;">University of Virginia</p>
+
+                    <p style="margin-bottom: 2rem;">
+                        <a href="mailto:econtai@virginia.edu" style="color: #E57200; font-size: 1.1rem; text-decoration: none; font-weight: 600;">econtai@virginia.edu</a>
+                    </p>
+
+                    <!-- Social Media Links -->
+                    <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                        <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;" title="X (Twitter)">
+                            <span>𝕏</span>
+                        </a>
+                        <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;" title="LinkedIn">
+                            <span>in</span>
+                        </a>
+                        <a href="https://econtai.virginia.edu" style="color: white; text-decoration: none; font-size: 1.5rem;" title="Website">
+                            <span>🌐</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Location Info -->
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="color: #232D4B; margin-bottom: 1rem;">Address</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: #333;">
+                        <strong style="color: #232D4B;">University of Virginia</strong><br>
+                        Department of Economics<br>
+                        Charlottesville, VA 22904
+                    </p>
+                </div>
+
+                <!-- Contact Form -->
+                <div style="background: #f8f9fa; padding: 3rem; border-radius: 8px;">
+                    <h3 style="color: #232D4B; margin-bottom: 1.5rem; text-align: center;">Send Us a Message</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                        <input type="hidden" name="access_key" value="2c92f690-8a06-402f-a672-9de77483e2bb">
+                        <input type="hidden" name="subject" value="New Contact Form Submission from EconTAI Website">
+                        <input type="hidden" name="from_name" value="EconTAI Website Contact Form">
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="name" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600;">Name *</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600;">Email *</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="message" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600;">Message *</label>
+                            <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" style="width: 100%; background: #E57200; color: white; padding: 1rem; border: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;">Send Message</button>
+                    </form>
+
+                    <div id="contact-success-message" style="display: none; color: #4ade80; margin-top: 1.5rem; padding: 1rem; background: rgba(74, 222, 128, 0.1); border-radius: 4px; text-align: center;">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Opportunities -->
+    <section style="background: #f8f9fa; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Collaboration Opportunities</h2>
+            <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #232D4B; margin-bottom: 1rem;">For Researchers</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #333;">
+                        We welcome collaboration with scholars across economics, computer science, and related fields. Opportunities include joint research projects, visiting scholar positions, and participation in workshops and conferences.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #232D4B; margin-bottom: 1rem;">For Policymakers</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #333;">
+                        EconTAI provides expert consultation on AI economic policy at local, national, and international levels. We offer policy briefings, expert testimony, and collaborative research on policy-relevant questions.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #232D4B; margin-bottom: 1rem;">For Organizations</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #333;">
+                        We partner with businesses, foundations, and international organizations on research projects, educational initiatives, and strategic consulting on AI's economic implications.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #232D4B; margin-bottom: 1rem;">For Students</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #333;">
+                        Graduate students interested in AI economics can engage with EconTAI through research assistantships, coursework, and participation in our seminars and workshops. Contact us to learn about current opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+</html>

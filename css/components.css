@@ -4,7 +4,7 @@
    ============================================ */
 
 /* ============================================
-   Mission & Vision Cards
+   Mission & Vision Cards - Stanford DEL Style
    ============================================ */
 
 .mission-vision {
@@ -15,56 +15,73 @@
 }
 
 .mission-card {
-    padding: 2rem;
+    padding: 2.5rem;
     background: white;
-    border-left: 4px solid var(--uva-orange);
-    box-shadow: var(--shadow-md);
+    border-left: 5px solid var(--uva-orange);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .mission-card h3 {
     color: var(--uva-navy);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 /* ============================================
-   Objectives List
+   Objectives List - Stanford DEL Style
    ============================================ */
 
 .objectives-list {
     counter-reset: objective-counter;
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
 }
 
 .objective {
     position: relative;
-    padding: 1.5rem 1.5rem 1.5rem 4rem;
-    margin-bottom: 1.5rem;
+    padding: 2rem 2rem 2rem 4.5rem;
+    margin-bottom: 2rem;
     background: white;
     border-radius: 8px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
     counter-increment: objective-counter;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.objective:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: var(--uva-orange);
 }
 
 .objective::before {
     content: counter(objective-counter);
     position: absolute;
-    left: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
+    left: 1.75rem;
+    top: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
     background: var(--uva-navy);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .objective strong {
     color: var(--uva-navy);
+    font-size: 1.05rem;
 }
 
 /* ============================================
@@ -271,6 +288,85 @@
 
 .contact-info a:hover {
     text-decoration: underline;
+}
+
+/* ============================================
+   Profile Cards (People Page)
+   ============================================ */
+
+.profile-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--uva-orange);
+    margin-bottom: 3rem;
+}
+
+.profile-header {
+    margin-bottom: 1.5rem;
+}
+
+.profile-name {
+    color: var(--uva-navy);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.profile-title {
+    color: var(--uva-orange);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-bio {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.profile-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--uva-navy);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.profile-link:hover {
+    color: var(--uva-orange);
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #0077B5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.linkedin-link:hover {
+    opacity: 0.8;
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+    fill: #0077B5;
 }
 
 /* ============================================
