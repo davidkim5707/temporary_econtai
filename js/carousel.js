@@ -38,13 +38,23 @@ class NewsCarousel {
 
     render() {
         const slidesHTML = this.newsItems.map((item, index) => `
-            <div class="news-slide" style="min-width: 100%; padding: 2rem; text-align: center; display: ${index === 0 ? 'block' : 'none'};">
-                <p style="color: #E57200; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase;">${item.source} • ${item.date}</p>
-                <h3 style="color: #232D4B; font-size: 1.4rem; margin-bottom: 1rem; line-height: 1.4;">
-                    <a href="${item.url}" style="color: #232D4B; text-decoration: none;" ${item.url.startsWith('http') ? 'target="_blank"' : ''}>${item.title}</a>
-                </h3>
-                <p style="color: #666; font-size: 1rem; line-height: 1.6; max-width: 700px; margin: 0 auto 1.5rem;">${item.excerpt}</p>
-                <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Read More →</a>
+            <div class="news-slide" style="min-width: 100%; display: ${index === 0 ? 'block' : 'none'};">
+                <div class="news-item">
+                    ${item.image ? `
+                        <div class="news-image">
+                            <img src="${item.image}" alt="${item.title}" />
+                            ${item.imageCaption ? `<p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-style: italic;">${item.imageCaption}</p>` : ''}
+                        </div>
+                    ` : ''}
+                    <div class="news-content ${!item.image ? 'full-width' : ''}">
+                        <div class="news-source">${item.source} • ${item.date}</div>
+                        <h3 class="news-title">
+                            <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''}>${item.title}</a>
+                        </h3>
+                        <p class="news-excerpt">${item.excerpt}</p>
+                        <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} class="news-link">Read Article →</a>
+                    </div>
+                </div>
             </div>
         `).join('');
 

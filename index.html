@@ -12,7 +12,7 @@
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section with Background Video -->
+        <!-- Hero Section with Background Video -->
     <section class="hero hero-with-media" style="position: relative; min-height: 500px; display: flex; align-items: center; overflow: hidden;">
         <!-- Background Video Container -->
         <div class="hero-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
@@ -22,21 +22,21 @@
             </video>
         </div>
 
-        <!-- Dark overlay for text visibility -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(35, 45, 75, 0.7); z-index: 1;"></div>
+        <!-- Light overlay for text readability -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.4); z-index: 1;"></div>
 
         <!-- Hero Content -->
-        <div class="container hero-content" style="position: relative; z-index: 2; color: white !important; padding: 4rem 20px; text-align: center;">
-            <h1 style="color: white !important; text-shadow: 0 3px 15px rgba(35, 45, 75, 0.8), 0 1px 3px rgba(0,0,0,0.9); font-size: 2.5rem; margin-bottom: 1rem;">
-                Economics of Transformative AI <span style="color: #E57200;">(EconTAI)</span>
-            </h1>
-            <p class="lead" style="color: white !important; text-shadow: 0 2px 8px rgba(35, 45, 75, 0.8), 0 1px 3px rgba(0,0,0,0.9); max-width: 900px; margin: 0 auto 0.5rem; font-size: 1.2rem; line-height: 1.5;">
-                A pioneering research initiative at the University of Virginia dedicated to understanding and shaping the economic implications of transformative artificial intelligence.
-            </p>
-            <p class="lead" style="color: white !important; text-shadow: 0 2px 8px rgba(35, 45, 75, 0.8), 0 1px 3px rgba(0,0,0,0.9); max-width: 900px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.5;">
-                We bridge the gap between economic theory and AI governance by producing rigorous research, building field capacity, and informing policy decisions during the transition to an AI-transformed economy.
-            </p>
-            <p class="institution" style="color: #E57200 !important; text-shadow: 0 1px 5px rgba(0,0,0,0.5); font-weight: 600; font-size: 1.05rem;">University of Virginia | Led by Professor Anton Korinek</p>
+        <div class="container hero-content" style="position: relative; z-index: 2; color: #232D4B !important; padding: 4rem 0;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h1 style="color: #232D4B !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); font-size: 2.8rem;">
+                    Economics of Transformative AI Initiative
+                </h1>
+                <p class="subtitle" style="color: #E57200 !important; font-size: 1.8rem;">EconTAI</p>
+                <p class="lead" style="color: #232D4B !important; text-shadow: 0 1px 2px rgba(0,0,0,0.05); font-size: 1.15rem;">
+                    A pioneering research initiative at the University of Virginia dedicated to understanding and shaping the economic implications of transformative artificial intelligence. We bridge the gap between economic theory and AI governance by producing rigorous research, building field capacity, and informing policy decisions during the transition to an AI-transformed economy.
+                </p>
+                <p class="institution" style="color: #232D4B !important; font-weight: 500; font-size: 1.05rem;">University of Virginia | Led by Professor Anton Korinek</p>
+            </div>
         </div>
     </section>
 
@@ -53,12 +53,9 @@
     <!-- Recent Publications -->
     <section id="recent-publications" style="background: #ffffff; padding: 4rem 0;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Recent Publications</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: #666;">
-                Latest research and insights from EconTAI
-            </p>
+            <h2 style="text-align: center; margin-bottom: 3rem;">Recent Papers</h2>
             <!-- Publications will be dynamically populated by publications-data.js -->
-            <div id="publications-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+            <div id="publications-container" style="max-width: 1000px; margin: 0 auto;">
             </div>
             <p style="text-align: center; margin-top: 3rem;">
                 <a href="research.html" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Publications →</a>

@@ -12,30 +12,26 @@
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="container">
-            <h1>Insights</h1>
-            <p>Blogs, briefs, news, and thought leadership on transformative AI and economics</p>
+    <!-- Intro Section -->
+    <section style="background: white; padding: 3rem 0;">
+        <div class="container" style="max-width: 900px;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 0rem; text-align: left;">
+                Welcome to EconTAI Insights, where we share our latest thinking on the economic implications of transformative AI. Here you'll find faculty commentary, media coverage, research briefs, and analysis on critical issues facing the AI-transformed economy.
+                For in-depth analysis and commentary, visit our <a href="#" style="color: #E57200; text-decoration: none; font-weight: 600;">blog</a>. Below, explore recent media coverage featuring EconTAI faculty and research.
+            </p>
         </div>
-    </div>
+    </section>
 
-    <!-- Insights Grid Section -->
-    <section style="background: #f8f9fa; padding: 4rem 0;">
-        <div class="container">
-            <div style="max-width: 1200px; margin: 0 auto;">
-                <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 3rem;">
-                    Explore our latest analysis, commentary, and news on the economics of transformative AI. Filter by content type to find what interests you most.
-                </p>
+    <!-- In the News Section -->
+    <section style="background: #f8f9fa; padding: 3rem 0;">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="color: #232D4B; margin-bottom: 2rem; text-align: left;">In the News</h2>
 
-                <!-- Filter Options (placeholder for future implementation) -->
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <p style="color: #666; font-style: italic;">Content coming soon. Check back for blogs, briefs, in the news, and podcasts.</p>
-                </div>
-
-                <!-- Insights Grid (placeholder) -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
-                    <!-- Insight items will be added here -->
+            <!-- News items will be dynamically rendered here from js/news-data.js -->
+            <div id="insights-news-container">
+                <!-- Loading placeholder -->
+                <div style="text-align: center; padding: 3rem; color: #666;">
+                    <p>Loading news items...</p>
                 </div>
             </div>
         </div>
@@ -55,5 +51,8 @@
 
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <!-- News Data and Rendering -->
+    <script src="js/news-data.js"></script>
+    <script src="js/insights-news.js"></script>
 </body>
 </html>

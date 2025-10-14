@@ -54,8 +54,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: var(--uva-navy);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
 /* ============================================
@@ -63,15 +63,15 @@ body {
    ============================================ */
 
 .university-banner {
-    background-color: var(--uva-navy);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(35, 45, 75, 0.1);
     padding: 0.5rem 0;
 }
 
 .university-link {
-    color: white !important;
+    color: var(--uva-navy) !important;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     font-weight: 500;
     letter-spacing: 0.3px;
     transition: opacity 0.3s;
@@ -86,30 +86,32 @@ body {
    ============================================ */
 
 .lab-navigation {
-    background-color: var(--uva-navy) !important;
+    background-color: #ffffff !important;
 }
 
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 0 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
 }
 
 .lab-branding {
-    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
 }
 
 .lab-name {
     font-size: 1.75rem;
     font-weight: 700;
-    margin: 0 0 0.25rem 0;
+    margin: 0;
     letter-spacing: 0.5px;
+    display: inline;
 }
 
 .lab-name a {
-    color: white !important;
+    color: var(--uva-navy) !important;
     text-decoration: none;
     transition: opacity 0.3s;
 }
@@ -119,10 +121,11 @@ body {
 }
 
 .lab-subtitle {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(35, 45, 75, 0.8);
     font-size: 0.85rem;
     margin: 0;
     font-weight: 400;
+    display: inline;
 }
 
 .nav-controls {
@@ -135,7 +138,7 @@ body {
 .menu-toggle {
     background: none;
     border: none;
-    color: white;
+    color: var(--uva-navy);
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -151,15 +154,15 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
-    padding: 1rem 0;
+    padding: 0;
     margin: 0;
 }
 
 .nav-links a {
-    color: #ffffff !important;
+    color: var(--uva-navy) !important;
     text-decoration: none;
     transition: opacity 0.3s;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     font-weight: 500;
 }
 
@@ -177,9 +180,9 @@ body {
    ============================================ */
 
 .hero {
-    background-color: var(--uva-navy) !important;
-    color: white !important;
-    padding: 6rem 0 4rem;
+    background-color: #ffffff !important;
+    color: var(--uva-navy) !important;
+    padding: 2rem 0 4rem;
     position: relative;
     overflow: hidden;
 }
@@ -191,34 +194,33 @@ body {
 .hero-content {
     position: relative;
     z-index: 1;
-    color: #ffffff !important;
+    color: var(--uva-navy) !important;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    color: #ffffff !important;
+    color: var(--uva-navy) !important;
 }
 
 .hero .subtitle {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: var(--uva-orange) !important;
     font-weight: 500;
 }
 
 .hero .lead {
     font-size: 1.1rem;
-    max-width: 800px;
     line-height: 1.8;
-    color: #ffffff !important;
+    color: var(--uva-navy) !important;
 }
 
 .hero .institution {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 1rem;
-    color: #ffffff !important;
+    color: var(--uva-navy) !important;
 }
 
 /* ============================================
@@ -226,8 +228,8 @@ body {
    ============================================ */
 
 .page-header {
-    background-color: var(--uva-navy);
-    color: white;
+    background-color: #ffffff;
+    color: var(--uva-navy);
     padding: 4rem 0 3rem;
     text-align: center;
 }
@@ -235,13 +237,13 @@ body {
 .page-header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--uva-navy);
     margin-bottom: 1rem;
 }
 
 .page-header p {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(35, 45, 75, 0.9);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -251,7 +253,7 @@ body {
    ============================================ */
 
 section {
-    padding: 6rem 0;
+    padding: 3.5rem 0;
 }
 
 section:nth-child(even) {

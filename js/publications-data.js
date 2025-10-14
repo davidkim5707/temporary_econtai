@@ -29,6 +29,16 @@ const publicationsData = {
             url: "research/Korinek-Lockwood-Public-Finance-TAI-2025-09-18.pdf",
             pdfUrl: "research/Korinek-Lockwood-Public-Finance-TAI-2025-09-18.pdf",
             tags: ["policy-translation", "research-excellence", "macroeconomic-implications"]
+        },
+        {
+            type: "RESEARCH PAPER",
+            title: "AI Agents for Economic Research",
+            authors: "Anton Korinek",
+            date: "2025-08-15",
+            description: "An introduction to demystify AI agents and a hands-on guide on how to employ them to accelerate economic research. Update of \"Generative AI for Economic Research,\" Journal of Economic Literature.",
+            url: "https://www.aeaweb.org/content/file?id=23290",
+            pdfUrl: "https://www.aeaweb.org/content/file?id=23290",
+            tags: ["research-excellence", "research-automation"]
         }
         // Add more research papers here as they become available
     ],
@@ -98,7 +108,7 @@ function getPublicationsByTag(tag) {
 }
 
 /**
- * Render publication cards on the page
+ * Render publication cards on the page (for homepage)
  * @param {string} containerId - ID of the container element
  * @param {number} count - Number of publications to display
  */
@@ -109,16 +119,53 @@ function renderPublications(containerId, count = 3) {
     const publications = getRecentPublications(count);
 
     container.innerHTML = publications.map(pub => `
-        <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 4px solid #E57200; transition: transform 0.3s, box-shadow 0.3s;"
-             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'"
-             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-            <p style="color: #E57200; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">${pub.type}</p>
-            <h4 style="color: #232D4B; margin-bottom: 0.5rem; font-size: 1.1rem; line-height: 1.4;">${pub.title}</h4>
-            <p style="color: #666; margin-bottom: 0.75rem; font-size: 0.85rem; font-style: italic;">${pub.authors}</p>
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.5;">${pub.description}</p>
-            <a href="${pub.url}" ${pub.pdfUrl ? 'target="_blank"' : ''} style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read More →</a>
-        </div>
+        <article class="publication-item-minimal">
+            <p class="publication-date-minimal">${formatDate(pub.date)}</p>
+            <h3 class="publication-title-inline">${pub.title} <span class="publication-authors-inline">by ${pub.authors}</span></h3>
+            <a href="${pub.url}" ${pub.pdfUrl ? 'target="_blank"' : ''} class="publication-link-simple">Read Paper</a>
+        </article>
     `).join('');
+}
+
+/**
+ * Render all research papers on research page
+ * @param {string} containerId - ID of the container element
+ * @param {object} options - Rendering options
+ */
+function renderResearchPapers(containerId, options = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // Get all research papers sorted by date (most recent first)
+    const papers = [...publicationsData.research].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    container.innerHTML = papers.map((paper, index) => `
+        <article class="research-paper-item">
+            ${index === 0 ? '<div class="paper-badge">Recent Paper</div>' : ''}
+            <h3 class="paper-title">
+                <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''}>${paper.title}</a>
+            </h3>
+            <div class="paper-meta">
+                <span class="paper-authors">${paper.authors}</span>
+                <span class="paper-date">${formatDate(paper.date)}</span>
+            </div>
+            <p class="paper-description">${paper.description}</p>
+            <div class="paper-links">
+                <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''} class="paper-link">Read Paper →</a>
+            </div>
+        </article>
+    `).join('');
+}
+
+/**
+ * Format date from YYYY-MM-DD to "Month YYYY"
+ * @param {string} dateString - Date in YYYY-MM-DD format
+ * @returns {string} Formatted date
+ */
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { year: 'numeric', month: 'long' };
+    return date.toLocaleDateString('en-US', options);
 }
 
 // Make functions available globally
@@ -127,3 +174,4 @@ window.getRecentPublications = getRecentPublications;
 window.getPublicationsByType = getPublicationsByType;
 window.getPublicationsByTag = getPublicationsByTag;
 window.renderPublications = renderPublications;
+window.renderResearchPapers = renderResearchPapers;

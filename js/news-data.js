@@ -19,27 +19,23 @@
  */
 
 const newsItems = [
-    // Example news item (replace with actual news when available):
     {
-        title: "EconTAI Launch: UVA Leads New Initiative on AI Economics",
-        date: "March 2025",
-        source: "University of Virginia News",
-        url: "#",
-        excerpt: "The University of Virginia announces the Economics of Transformative AI Initiative, led by Professor Anton Korinek, to address the economic implications of advanced AI systems."
+        title: "Anton Korinek: The 100 Most Influential People in AI 2025",
+        date: "April 2025",
+        source: "TIME",
+        url: "https://time.com/collections/time100-ai-2025/7305827/anton-korinek/",
+        excerpt: "EconTAI Director Anton Korinek, recently named to Time's Top 100 Most Influential People in AI, explores how AGI could transform the economy by shifting the engine of growth from labor to computation—and why policymakers must prepare now.",
+        image: "photos/photo_news/Anton-Korinek_times.webp",
+        imageCaption: "Photo-illustration by TIME."
     },
     {
-        title: "Professor Korinek Discusses AI's Impact on Labor Markets",
-        date: "March 2025",
-        source: "The Economist",
-        url: "#",
-        excerpt: "UVA economist Anton Korinek explores how transformative AI could reshape employment and economic policy in the coming decades."
-    },
-    {
-        title: "New Research on Public Finance in the AI Age",
-        date: "September 2024",
-        source: "Academic Journal",
-        url: "research/Korinek-Lockwood-Public-Finance-TAI-2025-09-18.pdf",
-        excerpt: "Korinek and Lockwood examine the challenges and opportunities for public finance as AI systems transform the economy."
+        title: "Searching for Signals of Soonish Superintelligence",
+        date: "April 2025",
+        source: "American Enterprise Institute",
+        url: "https://www.aei.org/articles/searching-for-signals-of-soonish-superintelligence/",
+        excerpt: "In a new AEI article — featuring research from UVA's Basil Halperin — the authors hunt for early signals that \"soonish\" superintelligence might be nearer than we think, exploring what clues we could spot today and what they'd imply for our economy and society.",
+        image: "photos/photo_news/Basil_news.jpg",
+        imageCaption: "Photo-illustration from AEI article."
     }
     // Add more news items here as they become available
     // Keep array sorted by date (most recent first) for best user experience
