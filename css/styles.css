@@ -583,4 +583,11 @@ footer p {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
     }
+
+    /* Microsoft Forms iframe responsive */
+    iframe[src*="forms.office.com"] {
+        width: 100% !important;
+        min-width: 350px;
+        height: 600px !important;
+    }
 }
