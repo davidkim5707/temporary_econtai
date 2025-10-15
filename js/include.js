@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // After header loads, highlight active page in navigation
     highlightActivePage();
+
+    // Initialize search functionality after header is loaded
+    if (window.initializeSearch) {
+        window.initializeSearch();
+    }
 });
 
 // Function to highlight the active page in navigation

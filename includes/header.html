@@ -2,8 +2,14 @@
 <div class="header-wrapper">
     <!-- University of Virginia Top Banner -->
     <header class="university-banner">
-        <div class="container">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="https://www.virginia.edu" class="university-link" target="_blank">University of Virginia</a>
+            <div class="search-container">
+                <input type="text" id="site-search" placeholder="Search..." class="search-input">
+                <button type="button" class="search-button" id="search-button">
+                    <span class="search-icon">🔍</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -12,8 +18,11 @@
         <div class="container">
             <div class="nav-header">
                 <div class="lab-branding">
-                    <h1 class="lab-name"><a href="index.html">EconTAI</a></h1>
-                    <p class="lab-subtitle">Economics of Transformative AI Initiative</p>
+                    <h1 class="lab-name">
+                        <a href="index.html">
+                            <img src="images/econtai-logo.png" alt="EconTAI Logo" style="height: 75px; width: 175px; vertical-align: middle;">
+                        </a>
+                    </h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -24,7 +33,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">Contact ▼</a>
                         <ul class="dropdown-menu">
-                            <li><a href="events.html">Events</a></li>
                             <li><a href="newsletter.html">Newsletter Signup</a></li>
                             <li><a href="contact-us.html">Contact Us</a></li>
                         </ul>

@@ -1,6 +1,6 @@
 /**
  * EconTAI - Contact Form Handler
- * Web3Forms integration for newsletter signup
+ * Web3Forms integration for newsletter signup and contact forms
  */
 
 // ============================================
@@ -8,12 +8,13 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('email-form');
+    // Try to find either email-form (newsletter) or contact-form (contact page)
+    const form = document.getElementById('email-form') || document.getElementById('contact-form');
 
     // Only run if form exists on this page
     if (!form) return;
 
-    const successMessage = document.getElementById('success-message');
+    const successMessage = document.getElementById('success-message') || document.getElementById('contact-success-message');
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.textContent;
 

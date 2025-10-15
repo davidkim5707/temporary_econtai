@@ -98,7 +98,7 @@ body {
 
 .lab-branding {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -367,7 +367,7 @@ footer p {
     min-width: 200px;
     list-style: none;
     padding: 0.5rem 0;
-    margin-top: 0.5rem;
+    margin-top: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
 }
@@ -392,6 +392,156 @@ footer p {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-input {
+    padding: 0.4rem 0.65rem;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    width: 150px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #E57200;
+    width: 200px;
+}
+
+.search-button {
+    background: #E57200;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.search-button:hover {
+    background: #ff8c1a;
+    transform: scale(1.05);
+}
+
+.search-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Search Results Panel */
+.search-results-panel {
+    position: fixed;
+    top: 80px;
+    right: 2rem;
+    width: 400px;
+    max-height: 500px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 10000;
+    overflow: hidden;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #232D4B, #2a3a5f);
+    color: white;
+}
+
+.search-results-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.close-search {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.close-search:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.search-results-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    display: block;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.search-result-item:hover {
+    background: #f8f9fa;
+}
+
+.result-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #E57200;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.search-result-item h4 {
+    margin: 0.25rem 0 0;
+    font-size: 1rem;
+    color: #232D4B;
+    font-weight: 600;
+}
+
+.search-result-item:hover h4 {
+    color: #E57200;
 }
 
 /* Mobile Responsive */
@@ -421,5 +571,16 @@ footer p {
         box-shadow: none;
         margin-top: 0;
         background-color: rgba(35, 45, 75, 0.95);
+    }
+
+    /* Stack Recent Papers & Events on mobile */
+    #recent-content .container > div {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Stack Mission & Vision on mobile */
+    .mission-vision-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
 }

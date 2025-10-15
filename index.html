@@ -13,7 +13,7 @@
     <div id="header-placeholder"></div>
 
         <!-- Hero Section with Background Video -->
-    <section class="hero hero-with-media" style="position: relative; min-height: 500px; display: flex; align-items: center; overflow: hidden;">
+    <section class="hero hero-with-media" style="position: relative; min-height: 350px; display: flex; align-items: center; overflow: hidden;">
         <!-- Background Video Container -->
         <div class="hero-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
             <!-- UVA Rotunda Lawn Background Video -->
@@ -26,16 +26,15 @@
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.4); z-index: 1;"></div>
 
         <!-- Hero Content -->
-        <div class="container hero-content" style="position: relative; z-index: 2; color: #232D4B !important; padding: 4rem 0;">
+        <div class="container hero-content" style="position: relative; z-index: 2; color: #232D4B !important; padding: 2.5rem 0;">
             <div style="max-width: 1000px; margin: 0 auto;">
-                <h1 style="color: #232D4B !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); font-size: 2.8rem;">
-                    Economics of Transformative AI Initiative
+                <h1 style="color: #232D4B !important; text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.2); font-size: 2.8rem;">
+                    Economics of Transformative AI <span style="color: #E57200 !important;">(EconTAI)</span>
                 </h1>
-                <p class="subtitle" style="color: #E57200 !important; font-size: 1.8rem;">EconTAI</p>
-                <p class="lead" style="color: #232D4B !important; text-shadow: 0 1px 2px rgba(0,0,0,0.05); font-size: 1.15rem;">
+                <p class="lead" style="color: #232D4B !important; text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.15); font-size: 1.15rem;">
                     A pioneering research initiative at the University of Virginia dedicated to understanding and shaping the economic implications of transformative artificial intelligence. We bridge the gap between economic theory and AI governance by producing rigorous research, building field capacity, and informing policy decisions during the transition to an AI-transformed economy.
                 </p>
-                <p class="institution" style="color: #232D4B !important; font-weight: 500; font-size: 1.05rem;">University of Virginia | Led by Professor Anton Korinek</p>
+                <p class="institution" style="color: #232D4B !important; font-weight: 500; font-size: 1.05rem; text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.15);">University of Virginia | Led by Professor Anton Korinek</p>
             </div>
         </div>
     </section>
@@ -50,16 +49,37 @@
         </div>
     </section>
 
-    <!-- Recent Publications -->
-    <section id="recent-publications" style="background: #ffffff; padding: 4rem 0;">
+    <!-- Recent Papers & Events - Two Column Layout -->
+    <section id="recent-content" style="background: #ffffff; padding: 4rem 0;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem;">Recent Papers</h2>
-            <!-- Publications will be dynamically populated by publications-data.js -->
-            <div id="publications-container" style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+
+                <!-- LEFT COLUMN: Recent Papers -->
+                <div>
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: #232D4B;">Recent Papers</h2>
+                    <!-- Publications will be dynamically populated by publications-data.js -->
+                    <div id="publications-container">
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem;">
+                        <a href="research.html" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Publications →</a>
+                    </p>
+                </div>
+
+                <!-- VERTICAL DIVIDER -->
+                <div style="background: linear-gradient(to bottom, transparent 0%, #e0e0e0 10%, #e0e0e0 90%, transparent 100%); width: 2px; margin: 0 1rem;"></div>
+
+                <!-- RIGHT COLUMN: Recent Events -->
+                <div>
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: #232D4B;">Recent Events</h2>
+                    <div id="events-container">
+                        <!-- Events will be dynamically populated by events-renderer.js -->
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem;">
+                        <a href="insights.html#recent-events" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Events →</a>
+                    </p>
+                </div>
+
             </div>
-            <p style="text-align: center; margin-top: 3rem;">
-                <a href="research.html" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Publications →</a>
-            </p>
         </div>
     </section>
 
@@ -77,16 +97,24 @@
 
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
     <!-- News and Publications Data -->
     <script src="js/news-data.js"></script>
     <script src="js/publications-data.js"></script>
     <script src="js/carousel.js"></script>
-    <!-- Initialize publications rendering -->
+    <!-- Events Data -->
+    <script src="js/events-data.js"></script>
+    <script src="js/events-renderer.js"></script>
+    <!-- Initialize publications and events rendering -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Render recent publications
             if (window.renderPublications) {
                 window.renderPublications('publications-container', 3);
+            }
+            // Render recent events (limit to 2)
+            if (window.renderEvents) {
+                window.renderEvents('events-container', 2);
             }
         });
     </script>

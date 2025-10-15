@@ -7,38 +7,125 @@
     <title>About Us | EconTAI</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
+    <style>
+    :root{
+      --ink:#232D4B;         /* UVA navy */
+      --ink-2:#2F5468;       /* slate */
+      --ink-3:#4A7C8C;       /* teal */
+      --ink-4:#6FA86E;       /* sage */
+      --ink-5:#7AB855;       /* lime */
+      --text:#3e3e3e;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --ring: 0 8px 30px rgba(0,0,0,.12);
+      --radius: 20px;
+    }
+
+    section.so{padding:clamp(1rem, 3vw, 3rem) 1rem; background:var(--bg)}
+    .so-title{color:var(--ink);font-weight:800;letter-spacing:.2px;text-align:left;margin:0 0 2rem;font-size:clamp(2.25rem, 3.2vw, 2.25rem)}
+
+    /* Layout */
+    .so-grid{display:grid;gap:clamp(1rem,2vw,1.5rem);align-items:center}
+    @media (min-width: 960px){
+      .so-grid{grid-template-columns: 360px 1fr; min-height:620px}
+    }
+
+    /* Core circle */
+    .so-core{position:relative;display:grid;place-items:center; margin-inline:auto; width:220px;height:220px;border-radius:50%;
+      background:linear-gradient(135deg,var(--ink) 0%, #1a2333 100%); color:#fff; box-shadow:var(--ring)}
+    .so-core .emoji{font-size:2.5rem;line-height:1;margin-bottom:.25rem}
+    .so-core .label{font-weight:800;text-align:center;letter-spacing:.3px}
+
+    /* Right column items */
+    .so-list{position:relative;display:grid;gap:clamp(.75rem,1.4vw,1rem)}
+
+    /* decorative rail connecting items to core */
+    @media (min-width:960px){
+      .so-list::before{content:"";position:absolute;left:-60px;top:0;bottom:0;width:2px;background:linear-gradient(180deg, rgba(35,45,75,.2), rgba(35,45,75,.05)); border-radius:2px}
+    }
+
+    .so-item{position:relative;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:1rem 1.25rem;border-radius:var(--radius);
+      background:#fff; box-shadow:var(--ring); transition:transform .25s ease, box-shadow .25s ease}
+    .so-item:hover{transform:translateY(-2px); box-shadow:0 10px 40px rgba(0,0,0,.15)}
+
+    /* colored strip per item */
+    .so-item::after{content:"";position:absolute;inset:0 0 auto auto;height:3px;border-top-left-radius:8px;border-top-right-radius:8px}
+
+    .so-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08); font-size:28px}
+
+    .so-item h3{margin:0 0 .25rem;font-size:1.1rem;font-weight:800}
+    .so-item p{margin:0;color:var(--muted)}
+
+    /* connector arc from rail to card */
+    @media (min-width:960px){
+      .arc{position:absolute;left:-60px;width:120px;height:80px;pointer-events:none}
+      .arc svg{position:absolute;inset:0}
+      .arc path{fill:none;stroke:rgba(35,45,75,.25);stroke-width:2}
+    }
+
+    /* Color-map per objective */
+    .o-5 h3{color:var(--ink-5)}
+    .o-5::after{background:var(--ink-5)}
+    .o-4 h3{color:var(--ink-4)}
+    .o-4::after{background:var(--ink-4)}
+    .o-3 h3{color:var(--ink-3)}
+    .o-3::after{background:var(--ink-3)}
+    .o-2 h3{color:var(--ink-2)}
+    .o-2::after{background:var(--ink-2)}
+    .o-1 h3{color:var(--ink)}
+    .o-1::after{background:var(--ink)}
+
+    /* spacing presets so the arcs vary slightly */
+    .o-5{margin-top:.25rem}
+    .o-4{margin-top:.35rem}
+    .o-3{margin-top:.45rem}
+    .o-2{margin-top:.55rem}
+    .o-1{margin-top:.65rem}
+
+    /* Motion safety */
+    @media (prefers-reduced-motion:reduce){
+      .so-item{transition:none}
+    }
+    </style>
 </head>
 <body>
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
-    <!-- Mission & Vision Section -->
-    <section style="padding: 1rem 0; background: white;">
+    <!-- Our Motivation Section (MOVED TO TOP) -->
+    <section style="background: #f8f9fa; padding: 3rem 0;">
         <div class="container">
             <div style="max-width: 1000px; margin: 0 auto;">
-                <!-- Mission -->
-                <div style="padding: 3rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <h2 style="color: #232D4B; font-size: 1.8rem; font-weight: 700; margin-bottom: 0rem; text-align: left;">Mission</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">To produce and disseminate cutting-edge economic research that helps society navigate the transition to transformative AI, ensuring that advanced AI systems contribute to broadly shared prosperity while mitigating the risks of economic disruption and inequality.</p>
-                </div>
-
-                <!-- Vision -->
-                <div style="padding: 3rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <h2 style="color: #232D4B; font-size: 1.8rem; font-weight: 700; margin-bottom: 0rem; text-align: left;">Vision</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">A world in which transformative AI expands prosperity and human flourishing.</p>
-                </div>
+                <h2 style="color: #232D4B; font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: left;">Our Motivation</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
+                    Advances in frontier artificial intelligence (AI) systems are accelerating and have the potential to transform our economies and societies in ways that have not been seen before. We are not prepared. UVA is uniquely positioned to host a dedicated research initiative on the topic—EconTAI—leveraging its interdisciplinary strengths and its geographic proximity to Washington, DC. Our goal is to equip leaders, policymakers, and society at large with the economic insights needed to harness AI's transformative potential while managing its risks—creating an AI-enabled economy that works for everyone.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Motivation Section -->
-    <section style="background: #f8f9fa; padding: 1rem 0;">
+    <!-- Mission & Vision Section (SIDE-BY-SIDE) -->
+    <section style="padding: 3rem 0; background: white;">
         <div class="container">
             <div style="max-width: 1000px; margin: 0 auto;">
-                <h2 style="color: #232D4B; font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: left;">Why We Exist</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
-                    Advances in frontier artificial intelligence (AI) systems are accelerating and have the potential to transform our economies and societies in ways that have not been seen before. We are not prepared. UVA is uniquely positioned to host a dedicated research initiative on the topic—EconTAI—leveraging its interdisciplinary strengths and its geographic proximity to Washington, DC. Our goal is to equip leaders, policymakers, and society at large with the economic insights needed to harness AI's transformative potential while managing its risks—creating an AI-enabled economy that works for everyone.
-                </p>
+                <div class="mission-vision-grid" style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 2rem;">
+
+                    <!-- Mission (Left Column) -->
+                    <div>
+                        <h2 style="color: #232D4B; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; text-align: left;">Mission</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">To produce and disseminate cutting-edge economic research that helps society navigate the transition to transformative AI, ensuring that advanced AI systems contribute to broadly shared prosperity while mitigating the risks of economic disruption and inequality.</p>
+                    </div>
+
+                    <!-- VERTICAL DIVIDER -->
+                    <div style="background: linear-gradient(to bottom, transparent 0%, #e0e0e0 10%, #e0e0e0 90%, transparent 100%); width: 2px; margin: 0 1rem;"></div>
+
+                    <!-- Vision (Right Column) -->
+                    <div>
+                        <h2 style="color: #232D4B; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; text-align: left;">Vision</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">A world in which transformative AI expands prosperity and human flourishing.</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -48,77 +135,95 @@
     
 
     <!-- Strategic Objectives -->
-    <section style="background: white; padding: 2rem 0;">
-        <div class="container">
-            <div style="max-width: 1000px; margin: 0 auto;">
-                <h2 style="color: #232D4B; font-size: 2rem; font-weight: 700; margin-bottom: 0rem; text-align: left;">Strategic Objectives</h2>
+    <section class="so" aria-labelledby="so-title">
+      <div class="container">
 
-                <!-- Objective 1 -->
-                <div style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <div style="display: flex; gap: 1.5rem; align-items: baseline;">
-                        <span style="color: #E57200; font-size: 1.8rem; font-weight: 700; flex-shrink: 0;">1.</span>
-                        <div>
-                            <h3 style="color: #232D4B; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Research Excellence</h3>
-                            <p style="color: #555; line-height: 1.8; font-size: 1.05rem; margin: 0;">Produce world-class economic research on transformative AI's implications for labor markets, productivity, inequality, and economic growth</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Objective 2 -->
-                <div style="padding: 2rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <div style="display: flex; gap: 1.5rem; align-items: baseline;">
-                        <span style="color: #E57200; font-size: 1.8rem; font-weight: 700; flex-shrink: 0;">2.</span>
-                        <div>
-                            <h3 style="color: #232D4B; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Education and Field Building</h3>
-                            <p style="color: #555; line-height: 1.8; font-size: 1.05rem; margin: 0;">Cultivate a community of scholars on TAI at UVA and globally and train the next generation of researchers and practitioners</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Objective 3 -->
-                <div style="padding: 2rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <div style="display: flex; gap: 1.5rem; align-items: baseline;">
-                        <span style="color: #E57200; font-size: 1.8rem; font-weight: 700; flex-shrink: 0;">3.</span>
-                        <div>
-                            <h3 style="color: #232D4B; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Policy Translation</h3>
-                            <p style="color: #555; line-height: 1.8; font-size: 1.05rem; margin: 0;">Deliver timely research insights that are useful for policymakers at the local, national, and international level</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Objective 4 -->
-                <div style="padding: 2rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <div style="display: flex; gap: 1.5rem; align-items: baseline;">
-                        <span style="color: #E57200; font-size: 1.8rem; font-weight: 700; flex-shrink: 0;">4.</span>
-                        <div>
-                            <h3 style="color: #232D4B; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Public Understanding</h3>
-                            <p style="color: #555; line-height: 1.8; font-size: 1.05rem; margin: 0;">Enhance public discourse on AI's economic implications through accessible communication and education</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Objective 5 -->
-                <div style="padding: 2rem 0; border-bottom: 1px solid #e0e0e0;">
-                    <div style="display: flex; gap: 1.5rem; align-items: baseline;">
-                        <span style="color: #E57200; font-size: 1.8rem; font-weight: 700; flex-shrink: 0;">5.</span>
-                        <div>
-                            <h3 style="color: #232D4B; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Innovation in Methods</h3>
-                            <p style="color: #555; line-height: 1.8; font-size: 1.05rem; margin: 0;">Pioneer new research methodologies that develop AI tools for economic research, including to study AI's economic impacts</p>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="so-grid">
+          <!-- Left: Core -->
+          <div class="so-core" aria-hidden="true">
+            <div>
+              <div class="label">Strategic<br/>Objectives</div>
             </div>
+          </div>
+
+          <!-- Right: Objectives list -->
+          <div class="so-list">
+            <!-- 5. Innovation in Methods -->
+            <article class="so-item o-5">
+              <div>
+                <h3>Innovation in Methods</h3>
+                <p>Pioneer research methodologies that build AI tools for economic research and study AI's macro and micro impacts.</p>
+              </div>
+              <div class="arc" style="top:-6px">
+                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2,2 C40,10 80,35 118,60" />
+                </svg>
+              </div>
+            </article>
+
+            <!-- 4. Public Understanding -->
+            <article class="so-item o-4">
+              <div>
+                <h3>Public Understanding</h3>
+                <p>Improve public discourse on AI's economic implications with accessible writing, visuals, and events.</p>
+              </div>
+              <div class="arc" style="top:-8px">
+                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2,5 C40,20 80,40 118,70" />
+                </svg>
+              </div>
+            </article>
+
+            <!-- 3. Policy Translation -->
+            <article class="so-item o-3">
+              <div>
+                <h3>Policy Translation</h3>
+                <p>Deliver timely, decision-useful insights for policymakers at local, national, and international levels.</p>
+              </div>
+              <div class="arc" style="top:-10px">
+                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2,8 C40,25 80,45 118,73" />
+                </svg>
+              </div>
+            </article>
+
+            <!-- 2. Education & Field Building -->
+            <article class="so-item o-2">
+              <div>
+                <h3>Education &amp; Field Building</h3>
+                <p>Grow a UVA-centered global community on TAI and train the next generation of researchers and practitioners.</p>
+              </div>
+              <div class="arc" style="top:-12px">
+                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2,10 C40,30 80,50 118,76" />
+                </svg>
+              </div>
+            </article>
+
+            <!-- 1. Research Excellence -->
+            <article class="so-item o-1">
+              <div>
+                <h3>Research Excellence</h3>
+                <p>Produce world-class research on TAI and its implications for labor markets, productivity, inequality, and growth.</p>
+              </div>
+              <div class="arc" style="top:-14px">
+                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2,12 C40,35 80,55 118,78" />
+                </svg>
+              </div>
+            </article>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Call to Action -->
     <section style="background-color: #232D4B; color: white; padding: 3rem 0; text-align: center;">
         <div class="container">
             <h2 style="color: white !important; margin-bottom: 1rem;">Learn About Our Work</h2>
-            <p style="color: white; font-size: 1.1rem; margin-bottom: 2rem;">Explore our strategic objectives and research areas</p>
+            <p style="color: white; font-size: 1.1rem; margin-bottom: 2rem;">Explore our insights and research areas</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="objectives.html" style="display: inline-block; background: #E57200; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">View Objectives</a>
+                <a href="insights.html" style="display: inline-block; background: #E57200; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">View Insights</a>
                 <a href="research.html" style="display: inline-block; background: white; color: #232D4B; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Research Areas</a>
             </div>
         </div>
@@ -129,5 +234,6 @@
 
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
