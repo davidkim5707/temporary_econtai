@@ -303,10 +303,9 @@ function renderPublications(containerId, count = 3) {
              onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.12)';"
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.08)';">
             <div style="color: #E57200; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">${formatDate(pub.date)}</div>
-            <h3 style="color: #232D4B; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 700;">${pub.title}</h3>
-            <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.75rem;">by ${pub.authors}</p>
-            <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">${pub.description}</p>
-            <a href="${pub.url}" ${pub.pdfUrl ? 'target="_blank"' : ''} style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Read Paper →</a>
+            <h3 style="color: #232D4B; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700; line-height: 1.3;">${pub.title}</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">by ${pub.authors}</p>
+            <a href="${pub.url}" ${pub.pdfUrl ? 'target="_blank"' : ''} style="display: inline-block; background: #E57200; color: white; padding: 0.6rem 1.25rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: background 0.3s;">Read Paper →</a>
         </div>
     `).join('');
 }

@@ -12,87 +12,94 @@
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
-    <!-- Contact Information -->
+    <!-- Contact Page - Side by Side Layout -->
     <section style="padding: 5rem 0; background: #f8f9fa;">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2 style="color: #232D4B; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Get In Touch</h2>
-                    <p style="color: #555; font-size: 1.15rem; line-height: 1.8; max-width: 600px; margin: 0 auto;">
-                        We'd love to hear from you. Reach out to discuss research collaborations, policy consultations, or other inquiries.
-                    </p>
-                </div>
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <!-- Two Column Grid -->
+                <div style="display: grid; grid-template-columns: 1.2fr 2px 1fr; gap: 3rem; align-items: start;">
 
-                <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 600px; margin: 0 auto;">
-                    <!-- Director Info -->
-                    <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                        <p style="color: #232D4B; font-weight: 700; font-size: 1.4rem; margin-bottom: 0.5rem;">Professor Anton Korinek</p>
-                        <p style="color: #666; font-size: 1.05rem; margin-bottom: 0;">Faculty Director</p>
+                    <!-- LEFT COLUMN: Contact Form -->
+                    <div>
+                        <div style="margin-bottom: 2rem;">
+                            <h2 style="color: #232D4B; font-size: 2rem; margin-bottom: 1rem;">Send Us a Message</h2>
+                            <p style="color: #666; font-size: 1.05rem; line-height: 1.6;">Have a question or want to discuss a collaboration? Fill out the form below and we'll get back to you promptly.</p>
+                        </div>
+
+                        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                            <input type="hidden" name="access_key" value="2c92f690-8a06-402f-a672-9de77483e2bb">
+                            <input type="hidden" name="subject" value="New Contact Form Submission from EconTAI Website">
+                            <input type="hidden" name="from_name" value="EconTAI Website Contact Form">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="name" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Name *</label>
+                                <input type="text" id="name" name="name" required style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="email" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Email *</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="subject" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Subject</label>
+                                <input type="text" id="subject" name="subject_line" style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <label for="message" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Message *</label>
+                                <textarea id="message" name="message" required rows="5" style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border-color 0.3s; box-sizing: border-box; font-family: inherit;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';"></textarea>
+                            </div>
+
+                            <button type="submit" style="width: 100%; background: linear-gradient(135deg, #E57200, #ff8c1a); color: white; padding: 1.125rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1.05rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(229, 114, 0, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(229, 114, 0, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(229, 114, 0, 0.3)';">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <div id="contact-success-message" style="display: none; color: #059669; margin-top: 1.5rem; padding: 1.25rem; background: #d1fae5; border-radius: 8px; text-align: center; font-weight: 600; border-left: 4px solid #059669;">
+                            ✓ Thank you for your message! We'll get back to you soon.
+                        </div>
                     </div>
 
-                    <!-- Email -->
-                    <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                        <p style="color: #666; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600;">Email</p>
-                        <a href="mailto:econtai@virginia.edu" style="color: #E57200; font-weight: 600; text-decoration: none; font-size: 1.3rem; display: inline-block; transition: color 0.3s;" onmouseover="this.style.color='#ff8c1a';" onmouseout="this.style.color='#E57200';">
-                            econtai@virginia.edu
-                        </a>
+                    <!-- VERTICAL DIVIDER -->
+                    <div style="background: #232D4B; width: 2px; height: 100%; opacity: 0.2;"></div>
+
+                    <!-- RIGHT COLUMN: Contact Information -->
+                    <div>
+                        <div style="margin-bottom: 2rem;">
+                            <h2 style="color: #232D4B; font-size: 2rem; margin-bottom: 1rem;">Get In Touch</h2>
+                            <p style="color: #555; font-size: 1.05rem; line-height: 1.6;">
+                                We'd love to hear from you. Reach out to discuss research collaborations, policy consultations, or other inquiries.
+                            </p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                            <!-- Director Info -->
+                            <div style="padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <p style="color: #232D4B; font-weight: 700; font-size: 1.3rem; margin-bottom: 0.5rem;">Professor Anton Korinek</p>
+                                <p style="color: #666; font-size: 1rem; margin-bottom: 0;">Faculty Director</p>
+                            </div>
+
+                            <!-- Email -->
+                            <div style="padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <p style="color: #666; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600;">Email</p>
+                                <a href="mailto:econtai@virginia.edu" style="color: #E57200; font-weight: 600; text-decoration: none; font-size: 1.2rem; display: inline-block; transition: color 0.3s;" onmouseover="this.style.color='#ff8c1a';" onmouseout="this.style.color='#E57200';">
+                                    econtai@virginia.edu
+                                </a>
+                            </div>
+
+                            <!-- Address -->
+                            <div style="padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <p style="color: #666; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600;">Address</p>
+                                <p style="color: #333; line-height: 1.8; font-size: 1rem; margin: 0;">
+                                    Department of Economics<br>
+                                    University of Virginia<br>
+                                    Charlottesville, VA 22904
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Address -->
-                    <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                        <p style="color: #666; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600;">Address</p>
-                        <p style="color: #333; line-height: 2; font-size: 1.05rem; margin: 0;">
-                            Department of Economics<br>
-                            University of Virginia<br>
-                            Charlottesville, VA 22904
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section style="padding: 4rem 0; background: white;">
-        <div class="container">
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="color: #232D4B; font-size: 2rem; margin-bottom: 1rem;">Send Us a Message</h2>
-                    <p style="color: #666; font-size: 1.1rem;">Have a question or want to discuss a collaboration? Fill out the form below and we'll get back to you promptly.</p>
-                </div>
-
-                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" style="background: #f8f9fa; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <input type="hidden" name="access_key" value="2c92f690-8a06-402f-a672-9de77483e2bb">
-                    <input type="hidden" name="subject" value="New Contact Form Submission from EconTAI Website">
-                    <input type="hidden" name="from_name" value="EconTAI Website Contact Form">
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <label for="name" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Name *</label>
-                        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Email *</label>
-                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <label for="subject" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Subject</label>
-                        <input type="text" id="subject" name="subject_line" style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';">
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <label for="message" style="display: block; margin-bottom: 0.5rem; color: #232D4B; font-weight: 600; font-size: 0.95rem;">Message *</label>
-                        <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 0.875rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border-color 0.3s; box-sizing: border-box; font-family: inherit;" onfocus="this.style.borderColor='#E57200';" onblur="this.style.borderColor='#ddd';"></textarea>
-                    </div>
-
-                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, #E57200, #ff8c1a); color: white; padding: 1.125rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1.05rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(229, 114, 0, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(229, 114, 0, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(229, 114, 0, 0.3)';">
-                        Send Message
-                    </button>
-                </form>
-
-                <div id="contact-success-message" style="display: none; color: #059669; margin-top: 1.5rem; padding: 1.25rem; background: #d1fae5; border-radius: 8px; text-align: center; font-weight: 600; border-left: 4px solid #059669;">
-                    ✓ Thank you for your message! We'll get back to you soon.
                 </div>
             </div>
         </div>

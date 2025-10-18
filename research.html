@@ -12,6 +12,23 @@
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
+    <!-- Search Bar -->
+    <section style="background: white; padding: 2rem 0 1rem;">
+        <div class="container" style="max-width: 1000px;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                <input type="text"
+                       id="research-search"
+                       placeholder="Search publications by title, author, or keyword..."
+                       style="flex: 1; padding: 0.75rem 1rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;">
+                <button id="research-clear"
+                        style="padding: 0.75rem 1.5rem; background: #E57200; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: none; transition: background 0.3s;">
+                    Clear
+                </button>
+            </div>
+            <div id="research-count" style="color: #666; font-size: 0.95rem;"></div>
+        </div>
+    </section>
+
     <!-- Working Papers -->
     <section style="background: #f8f9fa;">
         <div class="container">
@@ -38,6 +55,8 @@
     <script src="js/search.js"></script>
     <!-- Publications Data -->
     <script src="js/publications-data.js"></script>
+    <!-- Research Search -->
+    <script src="js/research-search.js"></script>
     <!-- Initialize research papers rendering -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -7,86 +7,6 @@
     <title>About Us | EconTAI</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
-    <style>
-    :root{
-      --ink:#232D4B;         /* UVA navy */
-      --ink-2:#2F5468;       /* slate */
-      --ink-3:#4A7C8C;       /* teal */
-      --ink-4:#6FA86E;       /* sage */
-      --ink-5:#7AB855;       /* lime */
-      --text:#3e3e3e;
-      --muted:#6b7280;
-      --bg:#ffffff;
-      --ring: 0 8px 30px rgba(0,0,0,.12);
-      --radius: 20px;
-    }
-
-    section.so{padding:clamp(1rem, 3vw, 3rem) 1rem; background:var(--bg)}
-    .so-title{color:var(--ink);font-weight:800;letter-spacing:.2px;text-align:left;margin:0 0 2rem;font-size:clamp(2.25rem, 3.2vw, 2.25rem)}
-
-    /* Layout */
-    .so-grid{display:grid;gap:clamp(1rem,2vw,1.5rem);align-items:center}
-    @media (min-width: 960px){
-      .so-grid{grid-template-columns: 360px 1fr; min-height:620px}
-    }
-
-    /* Core circle */
-    .so-core{position:relative;display:grid;place-items:center; margin-inline:auto; width:220px;height:220px;border-radius:50%;
-      background:linear-gradient(135deg,var(--ink) 0%, #1a2333 100%); color:#fff; box-shadow:var(--ring)}
-    .so-core .emoji{font-size:2.5rem;line-height:1;margin-bottom:.25rem}
-    .so-core .label{font-weight:800;text-align:center;letter-spacing:.3px}
-
-    /* Right column items */
-    .so-list{position:relative;display:grid;gap:clamp(.75rem,1.4vw,1rem)}
-
-    /* decorative rail connecting items to core */
-    @media (min-width:960px){
-      .so-list::before{content:"";position:absolute;left:-60px;top:0;bottom:0;width:2px;background:linear-gradient(180deg, rgba(35,45,75,.2), rgba(35,45,75,.05)); border-radius:2px}
-    }
-
-    .so-item{position:relative;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:1rem 1.25rem;border-radius:var(--radius);
-      background:#fff; box-shadow:var(--ring); transition:transform .25s ease, box-shadow .25s ease}
-    .so-item:hover{transform:translateY(-2px); box-shadow:0 10px 40px rgba(0,0,0,.15)}
-
-    /* colored strip per item */
-    .so-item::after{content:"";position:absolute;inset:0 0 auto auto;height:3px;border-top-left-radius:8px;border-top-right-radius:8px}
-
-    .so-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08); font-size:28px}
-
-    .so-item h3{margin:0 0 .25rem;font-size:1.1rem;font-weight:800}
-    .so-item p{margin:0;color:var(--muted)}
-
-    /* connector arc from rail to card */
-    @media (min-width:960px){
-      .arc{position:absolute;left:-60px;width:120px;height:80px;pointer-events:none}
-      .arc svg{position:absolute;inset:0}
-      .arc path{fill:none;stroke:rgba(35,45,75,.25);stroke-width:2}
-    }
-
-    /* Color-map per objective */
-    .o-5 h3{color:var(--ink-5)}
-    .o-5::after{background:var(--ink-5)}
-    .o-4 h3{color:var(--ink-4)}
-    .o-4::after{background:var(--ink-4)}
-    .o-3 h3{color:var(--ink-3)}
-    .o-3::after{background:var(--ink-3)}
-    .o-2 h3{color:var(--ink-2)}
-    .o-2::after{background:var(--ink-2)}
-    .o-1 h3{color:var(--ink)}
-    .o-1::after{background:var(--ink)}
-
-    /* spacing presets so the arcs vary slightly */
-    .o-5{margin-top:.25rem}
-    .o-4{margin-top:.35rem}
-    .o-3{margin-top:.45rem}
-    .o-2{margin-top:.55rem}
-    .o-1{margin-top:.65rem}
-
-    /* Motion safety */
-    @media (prefers-reduced-motion:reduce){
-      .so-item{transition:none}
-    }
-    </style>
 </head>
 <body>
     <!-- Header will be loaded here -->
@@ -130,91 +50,16 @@
         </div>
     </section>
 
-
-
-    
-
     <!-- Strategic Objectives -->
-    <section class="so" aria-labelledby="so-title">
-      <div class="container">
-
-        <div class="so-grid">
-          <!-- Left: Core -->
-          <div class="so-core" aria-hidden="true">
-            <div>
-              <div class="label">Strategic<br/>Objectives</div>
+    <section style="background: #f8f9fa; padding: 3rem 0;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <h2 style="color: #232D4B; font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: left;">Strategic Objectives</h2>
+                <img src="images/Strategic%20Objectives.png"
+                     alt="EconTAI Strategic Objectives - Research Excellence, Education and Field Building, Policy Translation, Public Understanding, Innovation in Methods"
+                     style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
             </div>
-          </div>
-
-          <!-- Right: Objectives list -->
-          <div class="so-list">
-            <!-- 5. Innovation in Methods -->
-            <article class="so-item o-5">
-              <div>
-                <h3>Innovation in Methods</h3>
-                <p>Pioneer research methodologies that build AI tools for economic research and study AI's macro and micro impacts.</p>
-              </div>
-              <div class="arc" style="top:-6px">
-                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2,2 C40,10 80,35 118,60" />
-                </svg>
-              </div>
-            </article>
-
-            <!-- 4. Public Understanding -->
-            <article class="so-item o-4">
-              <div>
-                <h3>Public Understanding</h3>
-                <p>Improve public discourse on AI's economic implications with accessible writing, visuals, and events.</p>
-              </div>
-              <div class="arc" style="top:-8px">
-                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2,5 C40,20 80,40 118,70" />
-                </svg>
-              </div>
-            </article>
-
-            <!-- 3. Policy Translation -->
-            <article class="so-item o-3">
-              <div>
-                <h3>Policy Translation</h3>
-                <p>Deliver timely, decision-useful insights for policymakers at local, national, and international levels.</p>
-              </div>
-              <div class="arc" style="top:-10px">
-                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2,8 C40,25 80,45 118,73" />
-                </svg>
-              </div>
-            </article>
-
-            <!-- 2. Education & Field Building -->
-            <article class="so-item o-2">
-              <div>
-                <h3>Education &amp; Field Building</h3>
-                <p>Grow a UVA-centered global community on TAI and train the next generation of researchers and practitioners.</p>
-              </div>
-              <div class="arc" style="top:-12px">
-                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2,10 C40,30 80,50 118,76" />
-                </svg>
-              </div>
-            </article>
-
-            <!-- 1. Research Excellence -->
-            <article class="so-item o-1">
-              <div>
-                <h3>Research Excellence</h3>
-                <p>Produce world-class research on TAI and its implications for labor markets, productivity, inequality, and growth.</p>
-              </div>
-              <div class="arc" style="top:-14px">
-                <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2,12 C40,35 80,55 118,78" />
-                </svg>
-              </div>
-            </article>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Call to Action -->

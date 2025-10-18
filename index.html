@@ -22,19 +22,19 @@
             </video>
         </div>
 
-        <!-- Light overlay for text readability -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.4); z-index: 1;"></div>
+        <!-- Dark overlay for text readability with visible video -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(35, 45, 75, 0.7); z-index: 1;"></div>
 
         <!-- Hero Content -->
-        <div class="container hero-content" style="position: relative; z-index: 2; color: #232D4B !important; padding: 2.5rem 0;">
+        <div class="container hero-content" style="position: relative; z-index: 2; color: white !important; padding: 2.5rem 0;">
             <div style="max-width: 1000px; margin: 0 auto;">
-                <h1 style="color: #232D4B !important; text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.2); font-size: 2.8rem;">
+                <h1 style="color: white !important; font-size: 2.8rem; font-weight: 700;">
                     Economics of Transformative AI <span style="color: #E57200 !important;">(EconTAI)</span>
                 </h1>
-                <p class="lead" style="color: #232D4B !important; text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.15); font-size: 1.15rem;">
+                <p class="lead" style="color: white !important; font-size: 1.15rem;">
                     A pioneering research initiative at the University of Virginia dedicated to understanding and shaping the economic implications of transformative artificial intelligence. We bridge the gap between economic theory and AI governance by producing rigorous research, building field capacity, and informing policy decisions during the transition to an AI-transformed economy.
                 </p>
-                <p class="institution" style="color: #232D4B !important; font-weight: 500; font-size: 1.05rem; text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.15);">University of Virginia | Led by Professor Anton Korinek</p>
+                <p class="institution" style="color: white !important; font-weight: 500; font-size: 1.05rem;">University of Virginia | Led by Professor Anton Korinek</p>
             </div>
         </div>
     </section>
@@ -52,23 +52,9 @@
     <!-- Recent Papers & Events - Two Column Layout -->
     <section id="recent-content" style="background: #ffffff; padding: 4rem 0;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 2fr 2px 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto;">
 
-                <!-- LEFT COLUMN: Recent Papers -->
-                <div>
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: #232D4B;">Recent Papers</h2>
-                    <!-- Publications will be dynamically populated by publications-data.js -->
-                    <div id="publications-container">
-                    </div>
-                    <p style="text-align: center; margin-top: 2rem;">
-                        <a href="research.html" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Publications →</a>
-                    </p>
-                </div>
-
-                <!-- VERTICAL DIVIDER -->
-                <div style="background: linear-gradient(to bottom, transparent 0%, #e0e0e0 10%, #e0e0e0 90%, transparent 100%); width: 2px; margin: 0 1rem;"></div>
-
-                <!-- RIGHT COLUMN: Recent Events -->
+                <!-- LEFT COLUMN: Recent Events (2/3 width) -->
                 <div>
                     <h2 style="text-align: center; margin-bottom: 2rem; color: #232D4B;">Recent Events</h2>
                     <div id="events-container">
@@ -76,6 +62,20 @@
                     </div>
                     <p style="text-align: center; margin-top: 2rem;">
                         <a href="insights.html#recent-events" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Events →</a>
+                    </p>
+                </div>
+
+                <!-- VERTICAL DIVIDER -->
+                <div style="background: linear-gradient(to bottom, transparent 0%, #e0e0e0 10%, #e0e0e0 90%, transparent 100%); width: 2px; margin: 0 1rem;"></div>
+
+                <!-- RIGHT COLUMN: Recent Papers (1/3 width) -->
+                <div>
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: #232D4B;">Recent Papers</h2>
+                    <!-- Publications will be dynamically populated by publications-data.js -->
+                    <div id="publications-container">
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem;">
+                        <a href="research.html" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1.1rem;">View All Publications →</a>
                     </p>
                 </div>
 

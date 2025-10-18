@@ -15,9 +15,22 @@
     <!-- Intro Section -->
     <section style="background: white; padding: 3rem 0;">
         <div class="container" style="max-width: 900px;">
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 0rem; text-align: left;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 2rem; text-align: left;">
                The insights page is where we share our latest thinking on the economic implications of transformative AI. Here you'll find faculty commentary, media coverage, research briefs, and analysis on critical issues facing the AI-transformed economy.
             </p>
+
+            <!-- Search Bar -->
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+                <input type="text"
+                       id="insights-search"
+                       placeholder="Search news and events by title, source, or keyword..."
+                       style="flex: 1; padding: 0.75rem 1rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;">
+                <button id="insights-clear"
+                        style="padding: 0.75rem 1.5rem; background: #E57200; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: none; transition: background 0.3s;">
+                    Clear
+                </button>
+            </div>
+            <div id="insights-count" style="color: #666; font-size: 0.95rem;"></div>
         </div>
     </section>
 
@@ -67,5 +80,7 @@
     <!-- Events Data and Rendering -->
     <script src="js/events-data.js"></script>
     <script src="js/insights-events.js"></script>
+    <!-- Insights Search -->
+    <script src="js/insights-search.js"></script>
 </body>
 </html>
