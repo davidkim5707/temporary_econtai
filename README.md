@@ -23,41 +23,50 @@ Official website for UVA's Economics of Transformative AI (EconTAI) initiative, 
 econtai/                          # Website root directory
 ├── README.md                     # This file - project documentation
 ├── .git/                         # Git repository
+├── .claude/                      # Claude Code settings directory
+├── .playwright-mcp/              # Playwright browser automation cache
 │
-├── HTML Pages                    # Main website pages
-│   ├── index.html                # Homepage with overview and previews
-│   ├── about.html                # Mission, vision, values, strategic objectives
-│   ├── insights.html             # News, events, and insights feed
-│   ├── research.html             # Research papers grid (20 papers)
+├── HTML Pages                    # Main website pages (6 pages)
+│   ├── index.html                # Homepage with hero video, news carousel, recent papers & events
+│   ├── about.html                # Mission, vision, strategic objectives (with infographic)
+│   ├── research.html             # Research papers grid with filter/search functionality
 │   ├── people.html               # Faculty and team profiles
-│   ├── newsletter.html           # Microsoft Forms newsletter signup
+│   ├── newsletter.html           # Microsoft Forms newsletter signup (embedded iframe)
 │   └── contact-us.html           # Contact information and Web3Forms contact form
 │
-├── includes/                     # Shared HTML components
-│   ├── header.html               # Site header (navigation, search bar)
+├── includes/                     # Shared HTML components (loaded via include.js)
+│   ├── header.html               # Two-tier header (University banner + Lab navigation with dropdown)
 │   └── footer.html               # Site footer (copyright)
 │
 ├── css/                          # Stylesheets
-│   ├── styles.css                # Main stylesheet (navigation, layout, hero, sections)
-│   └── components.css            # Component styles (cards, forms, grids)
+│   ├── styles.css                # Main stylesheet (navigation, layout, hero, sections, search)
+│   └── components.css            # Component styles (cards, forms, grids, dynamic effects)
 │
-├── js/                           # JavaScript files
-│   ├── main.js                   # Core utilities (navigation, active page highlighting)
+├── js/                           # JavaScript files (13 files)
+│   ├── main.js                   # Core utilities (navigation, active page highlighting, dropdown)
 │   ├── include.js                # Loads shared header/footer components
 │   ├── search.js                 # Site-wide keyword search functionality
-│   ├── contact-form.js           # Web3Forms submission handler
-│   ├── publications-data.js      # Research papers data and rendering
-│   ├── news-data.js              # News articles data
-│   ├── events-data.js            # Events data
-│   ├── events-renderer.js        # Events display logic
-│   ├── insights-events.js        # Events integration for insights page
-│   ├── insights-news.js          # News integration for insights page
-│   └── carousel.js               # Image carousel functionality
+│   ├── contact-form.js           # Web3Forms submission handler for contact page
+│   ├── publications-data.js      # Research papers data array and rendering functions
+│   ├── research-search.js        # Research page filter and search functionality
+│   ├── news-data.js              # News articles data array
+│   ├── events-data.js            # Events data array with status tracking
+│   ├── events-renderer.js        # Events display logic for homepage
+│   ├── insights-events.js        # Events integration (currently unused - no insights page)
+│   ├── insights-news.js          # News integration (currently unused - no insights page)
+│   ├── insights-search.js        # Insights search (currently unused - no insights page)
+│   └── carousel.js               # News carousel functionality for homepage
 │
 ├── images/                       # Website images and graphics
+│   ├── econtai-logo.png          # EconTAI logo
+│   ├── Strategic Objectives.png           # Old strategic objectives infographic
+│   └── Strategic Objectives Update.png    # New strategic objectives infographic (active)
+│
 ├── photos/                       # Faculty and event photos
 ├── logo/                         # EconTAI and UVA logos
 ├── videos/                       # Video content
+│   └── Rotunda Lawn.mp4          # UVA Rotunda background video (homepage hero)
+│
 ├── faculty/                      # Faculty-related content (future expansion)
 ├── research/                     # Research-related content (future expansion)
 ├── cgi-bin/                      # Server scripts directory
@@ -70,80 +79,65 @@ econtai/                          # Website root directory
 ## Page Architecture
 
 ### 1. [index.html](index.html) - Homepage
-**Purpose**: Initiative overview with previews of all major sections
+**Purpose**: Initiative overview with dynamic content and multimedia hero
 
 **Content**:
-- Hero section with full initiative introduction
-- Mission overview with preview cards
-- Strategic objectives preview (5 objectives)
-- Faculty preview (3 featured profiles)
-- Research preview (3 recent papers)
-- Call-to-action linking to newsletter and contact pages
+- Hero section with UVA Rotunda Lawn background video
+- "In the News" carousel with news articles
+- Two-column layout: Recent Events (left, 2/3 width) + Recent Papers (right, 1/3 width)
+- Call-to-action linking to newsletter subscription
 
 **Key Features**:
-- Dynamic content loading from publications-data.js
-- Responsive grid layouts for objectives and previews
-- UVA-branded hero section with navy background
+- Background video (videos/Rotunda Lawn.mp4) with dark overlay for readability
+- Dynamic news carousel powered by carousel.js
+- Publications rendered from publications-data.js (3 recent papers)
+- Events rendered from events-data.js (2 recent events)
+- Responsive grid layout with vertical divider
+- UVA-branded hero (Navy #232D4B with Orange #E57200 accents)
 
 ---
 
-### 2. [about.html](about.html) - Mission & Vision
-**Purpose**: Detailed mission, vision, values, and strategic objectives
+### 2. [about.html](about.html) - About Us / Mission & Vision
+**Purpose**: Detailed mission, vision, motivation, and strategic objectives
 
 **Content**:
-- Vision and Mission cards
-- "Why EconTAI Exists" section (Challenge, Gap, Response)
-- Core values grid (4 values with icons)
-- Strategic objectives detailed expansion
-- Call-to-action section linking to insights and research
+- "Our Motivation" section explaining UVA's unique positioning
+- Side-by-side Mission & Vision (two-column grid with vertical divider)
+- Strategic Objectives infographic (images/Strategic Objectives Update.png)
+- Call-to-action linking to newsletter subscription
 
 **Key Features**:
-- Gradient backgrounds on key sections
-- Icon-enhanced value propositions
-- Structured content hierarchy for readability
+- Dynamic Strategic Objectives image with CSS animations:
+  - Fade-in on page load (fadeInUp animation, 0.8s)
+  - Hover effects (scale 1.02, lift 4px, enhanced shadow)
+  - Responsive styling (reduced effects on mobile)
+  - CSS class: `.strategic-objectives-image` in components.css
+- Two-column layout with gradient vertical divider
+- Clean, accessible content structure
+- Professional polish matching UVA brand
 
 ---
 
-### 3. [insights.html](insights.html) - News & Events
-**Purpose**: Latest news, events, and community updates
+### 3. [research.html](research.html) - Research Papers
+**Purpose**: Comprehensive research publications library with filtering
 
 **Content**:
-- Combined feed of news articles and events
-- Chronological display with category labels
-- Date-based organization
-- External links to full articles and event details
+- Filter buttons: All, Publications, Events, News (active filter highlighted in orange)
+- Research papers displayed in responsive grid layout
+- Paper details: Title, Authors, Date, Description, Links (Paper/PDF/Code)
+- Paper descriptions limited to 3 lines with ellipsis for consistent card heights
 
 **Key Features**:
-- Dynamic content from news-data.js and events-data.js
-- Event status badges (Upcoming, Past)
-- Card-based layout with hover effects
-- Responsive grid (auto-fit columns)
-
-**Data Sources**:
-- [js/news-data.js](js/news-data.js) - News articles
-- [js/events-data.js](js/events-data.js) - Events calendar
-
----
-
-### 4. [research.html](research.html) - Research Papers
-**Purpose**: Comprehensive research publications library
-
-**Content**:
-- 20 research papers in responsive grid layout
-- Paper details: Title, Authors, Date, Description, URL
-- "Recent Paper" badges on top 3 papers
-- Category tags for filtering (future feature)
-
-**Key Features**:
-- Auto-fit grid layout (450px minimum column width)
+- **Filter functionality** powered by research-search.js
+- Auto-fit grid layout (350px minimum column width)
 - Hover effects with elevation and shadow
-- Paper descriptions/abstracts displayed
-- External links to paper PDFs
-- Grid layout ensures consistent card heights
+- External links to paper PDFs, GitHub repos, arXiv
+- Dynamic rendering from publications-data.js
+- Search functionality within filtered results
 
 **Data Source**: [js/publications-data.js](js/publications-data.js)
 
-**Research Areas**:
+**Research Areas Covered**:
 - Labor Market Transformation
 - Macroeconomic Implications
 - AI Safety & Economic Governance
@@ -153,24 +147,25 @@ econtai/                          # Website root directory
 
 ---
 
-### 5. [people.html](people.html) - Faculty & Team
+### 4. [people.html](people.html) - Faculty & Team
 **Purpose**: Faculty profiles and team member information
 
 **Content**:
-- Faculty Director: Professor Anton Korinek (detailed profile)
-- Associated Faculty: Basil Halperin, Lee Lockwood (profile cards)
-- Graduate Research Assistant: Dawis Kim (simple listing)
+- Faculty Director: Professor Anton Korinek (detailed profile with photo)
+- Associated Faculty: Basil Halperin, Lee Lockwood (profile cards with photos)
+- Graduate Research Assistant: Dawis Kim (simple text listing)
 
 **Key Features**:
-- Faculty cards with photos and expertise areas
-- Research interests and contact information
-- Links to personal websites and CVs
-- Responsive grid layout for faculty cards
-- Professional headshots in photos/ directory
+- Profile cards with professional headshots (from photos/ directory)
+- Research interests and expertise areas
+- Links to personal websites, CVs, and Google Scholar profiles
+- LinkedIn integration with SVG icons
+- Responsive grid layout (stacks on mobile)
+- Professional photo borders (3px UVA Orange)
 
 ---
 
-### 6. [newsletter.html](newsletter.html) - Newsletter Signup
+### 5. [newsletter.html](newsletter.html) - Newsletter Signup
 **Purpose**: Newsletter subscription with automatic Excel integration
 
 **Form Integration**: **Microsoft Forms (Office 365)**
@@ -179,23 +174,22 @@ econtai/                          # Website root directory
 - **Fields**: First Name, Last Name, Organization, Email
 
 **Key Features**:
-- Embedded Microsoft Forms iframe
+- Embedded Microsoft Forms iframe (640px × 480px)
 - Responsive design (full width on mobile, min 350px)
-- Automatic Excel data capture (no manual entry needed)
+- Automatic Excel data capture (no manual entry, no JavaScript needed)
 - Quarterly newsletter frequency
-- Professional form styling matching website design
+- Newsletter description with bullet points
 
-**Newsletter Content**:
-- Quarterly research updates
-- Event announcements
-- Key developments in transformative AI economics
-- Policy updates
+**Newsletter Content** (Quarterly):
+- Research updates and new publications
+- Event announcements (conferences, seminars, workshops)
+- Policy developments in transformative AI economics
 - Community highlights
 - Reading recommendations
 
 ---
 
-### 7. [contact-us.html](contact-us.html) - Contact & Collaboration
+### 6. [contact-us.html](contact-us.html) - Contact & Collaboration
 **Purpose**: Contact information and general inquiry form
 
 **Contact Information**:
@@ -623,6 +617,16 @@ git push origin main
 
 ## Changelog
 
+### 2025-10-27 - Strategic Objectives Image Update
+- **Updated Strategic Objectives infographic** in [about.html](about.html)
+- Changed from `Strategic Objectives.png` to `Strategic Objectives Update.png`
+- **Added dynamic CSS styling** for Strategic Objectives image:
+  - Fade-in animation on page load (fadeInUp, 0.8s)
+  - Hover effects: scale 1.02, lift 4px, enhanced shadow
+  - Responsive mobile adjustments (reduced effects)
+  - Professional polish with rounded corners and shadows
+- CSS implementation in [css/components.css](css/components.css) (lines 749-789)
+
 ### 2025-01-15 - Microsoft Forms Integration
 - Replaced Web3Forms newsletter with Microsoft Forms
 - Added automatic Excel integration for newsletter signups
@@ -631,13 +635,16 @@ git push origin main
 - Removed Web3Forms JavaScript dependency from newsletter page
 
 ### Previous Updates
-- Added 20 research papers to research page with grid layout
-- Implemented site-wide search functionality
+- **Removed insights.html page** (consolidated into homepage news carousel)
+- Added 20+ research papers to research page with filter/search functionality
+- Implemented site-wide search functionality in top banner
 - Added Graduate Research Assistant section to people page
 - Redesigned contact page with professional layout
 - Fixed contact dropdown menu functionality
-- Updated navigation with search bar in top banner
-- Added paper descriptions/abstracts to main page
+- Added paper descriptions/abstracts with 3-line ellipsis
+- Implemented homepage hero with UVA Rotunda Lawn background video
+- Added news carousel to homepage (carousel.js)
+- Created two-column Recent Events + Recent Papers layout on homepage
 
 ---
 

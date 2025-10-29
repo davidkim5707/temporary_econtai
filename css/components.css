@@ -455,6 +455,12 @@
     line-height: 1.8;
     margin-bottom: 1.5rem;
     max-width: 900px;
+    /* Limit to 3 lines with ellipsis for consistent card heights */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .paper-links {
@@ -697,5 +703,87 @@
 
     .publication-link-simple {
         font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   Filter Buttons - Research Page
+   ============================================ */
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background: white;
+    color: #232D4B;
+    border: 2px solid #232D4B;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: #E57200;
+    color: white;
+    border-color: #E57200;
+}
+
+.filter-btn.active:hover {
+    background: #d66700;
+    border-color: #d66700;
+}
+
+@media (max-width: 768px) {
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   Strategic Objectives Image - Dynamic Styling
+   ============================================ */
+
+.strategic-objectives-image {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s ease-out;
+    will-change: transform, box-shadow;
+}
+
+.strategic-objectives-image:hover {
+    transform: scale(1.02) translateY(-4px);
+    box-shadow: 0 8px 24px rgba(35, 45, 75, 0.15);
+}
+
+/* Fade-in animation on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .strategic-objectives-image {
+        border-radius: 8px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .strategic-objectives-image:hover {
+        transform: scale(1.01) translateY(-2px);
+        box-shadow: 0 6px 18px rgba(35, 45, 75, 0.12);
     }
 }

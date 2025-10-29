@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EconTAI's research spans six core areas: Labor Market Transformation, Macroeconomic Implications, AI Safety & Governance, Research Automation, Financial Sector, and Economics of AI Agents.">
-    <title>Research Areas | EconTAI</title>
+    <meta name="description" content="EconTAI Research - Working papers, publications, insights, news coverage, and events on transformative AI and economics.">
+    <title>Research | EconTAI</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
@@ -18,22 +18,68 @@
             <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
                 <input type="text"
                        id="research-search"
-                       placeholder="Search publications by title, author, or keyword..."
+                       placeholder="Search publications, news, and events..."
                        style="flex: 1; padding: 0.75rem 1rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;">
                 <button id="research-clear"
                         style="padding: 0.75rem 1.5rem; background: #E57200; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: none; transition: background 0.3s;">
                     Clear
                 </button>
             </div>
+
+            <!-- Filter Bar -->
+            <div id="filter-bar" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; margin-bottom: 1rem;">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="news">News</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="commentaries">Commentaries</button>
+                <button class="filter-btn" data-filter="blogs">Blogs</button>
+                <button class="filter-btn" data-filter="publications">Publications</button>
+                <button class="filter-btn" data-filter="workingpapers">Working Papers</button>
+            </div>
+
             <div id="research-count" style="color: #666; font-size: 0.95rem;"></div>
         </div>
     </section>
 
-    <!-- Working Papers -->
-    <section style="background: #f8f9fa;">
-        <div class="container">
-            <!-- Research papers will be dynamically populated by publications-data.js -->
-            <div id="research-papers-container" style="max-width: 1000px; margin: 0 auto;">
+    <!-- In the News Section -->
+    <section data-section="news commentaries blogs" style="background: #f8f9fa; padding: 3rem 0;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 style="color: #232D4B; margin-bottom: 2rem; text-align: left;">In the News</h2>
+
+            <!-- News items will be dynamically rendered here from js/news-data.js -->
+            <div id="insights-news-container">
+                <!-- Loading placeholder -->
+                <div style="text-align: center; padding: 3rem; color: #666;">
+                    <p>Loading news items...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Events Section -->
+    <section data-section="events" style="background: white; padding: 3rem 0;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 style="color: #232D4B; margin-bottom: 2rem; text-align: left;">Recent Events</h2>
+            <div id="insights-events-container">
+                <!-- Events will be dynamically populated by events-renderer.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section data-section="publications" style="background: #f8f9fa; padding: 3rem 0;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 style="color: #232D4B; margin-bottom: 2rem; text-align: left;">Publications</h2>
+            <div id="research-papers-container">
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Papers Section -->
+    <section data-section="workingpapers" style="background: white; padding: 3rem 0;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 style="color: #232D4B; margin-bottom: 2rem; text-align: left;">Working Papers</h2>
+            <div id="working-papers-container">
             </div>
         </div>
     </section>
@@ -41,9 +87,9 @@
     <!-- Call to Action -->
     <section style="background-color: #232D4B; color: white; padding: 4rem 0; text-align: center;">
         <div class="container">
-            <h2 style="color: white !important; margin-bottom: 1rem;">Join Our Research Community</h2>
-            <p style="color: white; font-size: 1.1rem; margin-bottom: 2rem;">Stay updated on our latest findings and collaborate with our team</p>
-            <a href="contact.html" style="display: inline-block; background: #E57200; color: white; padding: 1rem 3rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">Get In Touch</a>
+            <h2 style="color: white !important; margin-bottom: 1rem;">Get Involved</h2>
+            <p style="color: white; font-size: 1.1rem; margin-bottom: 2rem;">Stay updated on our research, events, and initiatives</p>
+            <a href="newsletter.html" style="display: inline-block; background: #E57200; color: white; padding: 1rem 3rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.3s;">Subscribe to Updates</a>
         </div>
     </section>
 
@@ -55,14 +101,24 @@
     <script src="js/search.js"></script>
     <!-- Publications Data -->
     <script src="js/publications-data.js"></script>
+    <!-- News Data and Rendering -->
+    <script src="js/news-data.js"></script>
+    <script src="js/insights-news.js"></script>
+    <!-- Events Data and Rendering -->
+    <script src="js/events-data.js"></script>
+    <script src="js/insights-events.js"></script>
     <!-- Research Search -->
     <script src="js/research-search.js"></script>
-    <!-- Initialize research papers rendering -->
+    <!-- Initialize research papers and working papers rendering -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Render all research papers
             if (window.renderResearchPapers) {
                 window.renderResearchPapers('research-papers-container');
+            }
+            // Render all working papers
+            if (window.renderWorkingPapers) {
+                window.renderWorkingPapers('working-papers-container');
             }
         });
     </script>

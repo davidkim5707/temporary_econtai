@@ -5,7 +5,7 @@
  *
  * To update weekly:
  * 1. Add new news items to the beginning of the newsItems array
- * 2. Each news item should have: title, date, source, url, and excerpt
+ * 2. Each news item should have: title, date, source, url, excerpt, and type
  * 3. Keep the most recent 10-15 news items for the carousel
  *
  * News Item Structure:
@@ -14,7 +14,10 @@
  *   date: "Month YYYY",
  *   source: "Publication or media outlet name",
  *   url: "https://...",
- *   excerpt: "Brief summary or notable quote (1-2 sentences)"
+ *   excerpt: "Brief summary or notable quote (1-2 sentences)",
+ *   type: "news" | "commentary" | "blog",
+ *   image: "path/to/image.jpg" (optional),
+ *   imageCaption: "Image caption" (optional)
  * }
  */
 
@@ -25,6 +28,7 @@ const newsItems = [
         source: "TIME",
         url: "https://time.com/collections/time100-ai-2025/7305827/anton-korinek/",
         excerpt: "EconTAI Director Anton Korinek, recently named to Time's Top 100 Most Influential People in AI, explores how AGI could transform the economy by shifting the engine of growth from labor to computation—and why policymakers must prepare now.",
+        type: "news",
         image: "photos/photo_news/Anton-Korinek_times.webp",
         imageCaption: "Photo-illustration by TIME."
     },
@@ -34,6 +38,7 @@ const newsItems = [
         source: "American Enterprise Institute",
         url: "https://www.aei.org/articles/searching-for-signals-of-soonish-superintelligence/",
         excerpt: "In a new AEI article — featuring research from UVA's Basil Halperin — the authors hunt for early signals that \"soonish\" superintelligence might be nearer than we think, exploring what clues we could spot today and what they'd imply for our economy and society.",
+        type: "news",
         image: "photos/photo_news/Basil_news.jpg",
         imageCaption: "Photo-illustration from AEI article."
     }
