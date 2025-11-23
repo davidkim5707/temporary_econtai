@@ -21,7 +21,7 @@ async function loadComponent(componentPath, targetId) {
 }
 
 // Load header and footer when DOM is ready
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     // Load header
     await loadComponent('includes/header.html', 'header-placeholder');
 
@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // After header loads, highlight active page in navigation
     highlightActivePage();
+
+    // Initialize navigation (mobile menu, dropdowns)
+    if (window.initializeNavigation) {
+        window.initializeNavigation();
+    }
 
     // Initialize search functionality after header is loaded
     if (window.initializeSearch) {

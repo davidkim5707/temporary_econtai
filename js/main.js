@@ -34,56 +34,53 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Dropdown menu functionality
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    // ============================================
+    // Mobile Menu & Navigation Initialization
+    // ============================================
 
-    if (dropdownToggle && dropdown) {
-        // Prevent default link behavior for dropdown toggle
-        dropdownToggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
-        });
+    function initializeNavigation() {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('.menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links');
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function (e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-    }
-});
+        if (mobileMenuButton && navLinksContainer) {
+            // Remove old event listeners to prevent duplicates if called multiple times
+            const newButton = mobileMenuButton.cloneNode(true);
+            mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
 
-// ============================================
-// Smooth Scroll for Anchor Links (if any)
-// ============================================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            newButton.addEventListener('click', function () {
+                navLinksContainer.classList.toggle('active');
+                newButton.classList.toggle('active');
             });
         }
+
+        // Dropdown menu functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        if (dropdownToggle && dropdown) {
+            // Remove old event listeners
+            const newToggle = dropdownToggle.cloneNode(true);
+            dropdownToggle.parentNode.replaceChild(newToggle, dropdownToggle);
+
+            newToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // Make available globally
+    window.initializeNavigation = initializeNavigation;
+
+    // Try to initialize on load (for static pages)
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeNavigation();
     });
-});
-
-// ============================================
-// Mobile Menu Toggle (future enhancement)
-// ============================================
-
-// Placeholder for mobile menu functionality
-// Uncomment and customize when adding mobile hamburger menu
-
-const mobileMenuButton = document.querySelector('.menu-toggle');
-const navLinksContainer = document.querySelector('.nav-links');
-
-if (mobileMenuButton && navLinksContainer) {
-    mobileMenuButton.addEventListener('click', function () {
-        navLinksContainer.classList.toggle('active');
-        mobileMenuButton.classList.toggle('active');
-    });
-}
