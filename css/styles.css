@@ -674,10 +674,6 @@ footer p {
     .menu-toggle {
         display: flex !important;
         /* Force visibility */
-        border: 2px solid red;
-        /* TEMPORARY DEBUG OUTLINE */
-        background-color: rgba(255, 0, 0, 0.1);
-        /* TEMPORARY DEBUG BG */
         z-index: 10001;
         /* Ensure above everything */
     }
