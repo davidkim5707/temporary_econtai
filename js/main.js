@@ -78,13 +78,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Placeholder for mobile menu functionality
 // Uncomment and customize when adding mobile hamburger menu
 
-/*
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
-const navLinks = document.querySelector('.nav-links');
+const mobileMenuButton = document.querySelector('.menu-toggle');
+const navLinksContainer = document.querySelector('.nav-links');
 
-if (mobileMenuButton) {
+if (mobileMenuButton && navLinksContainer) {
     mobileMenuButton.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+        // Toggle icon between hamburger and X
+        if (navLinksContainer.classList.contains('active')) {
+            mobileMenuButton.innerHTML = '✕';
+        } else {
+            mobileMenuButton.innerHTML = '☰';
+        }
     });
 }
-*/

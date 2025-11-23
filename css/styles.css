@@ -14,9 +14,9 @@
     --bg-light: #f8f9fa;
     --bg-white: #fff;
     --bg-dark: #1a1a1a;
-    --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
-    --shadow-md: 0 2px 10px rgba(0,0,0,0.05);
-    --shadow-lg: 0 5px 15px rgba(0,0,0,0.1);
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
@@ -53,9 +53,10 @@ body {
     .container {
         max-width: 1400px;
     }
-    
+
     html {
-        font-size: 18px; /* Slightly larger base font for big screens */
+        font-size: 18px;
+        /* Slightly larger base font for big screens */
     }
 }
 
@@ -74,7 +75,7 @@ body {
     top: 0;
     z-index: 1000;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================
@@ -129,6 +130,13 @@ body {
     display: inline;
 }
 
+.logo-img {
+    height: 110px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: height 0.3s ease;
+}
+
 .lab-name a {
     color: var(--uva-navy) !important;
     text-decoration: none;
@@ -158,11 +166,19 @@ body {
     background: none;
     border: none;
     color: var(--uva-navy);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    /* Larger touch target */
     cursor: pointer;
     padding: 0.5rem;
     transition: opacity 0.3s;
 }
+
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+}
+
+.search-toggle:hover,
 
 .search-toggle:hover,
 .menu-toggle:hover {
@@ -348,6 +364,44 @@ footer p {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 0;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo-img {
+        height: 50px;
+        /* Smaller logo on mobile */
     }
 
     .hero h1 {
@@ -473,7 +527,7 @@ footer p {
     max-height: 500px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     z-index: 10000;
     overflow: hidden;
     animation: slideIn 0.3s ease;
@@ -484,6 +538,7 @@ footer p {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -522,7 +577,7 @@ footer p {
 }
 
 .close-search:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .search-results-list {
@@ -593,7 +648,7 @@ footer p {
     }
 
     /* Stack Recent Papers & Events on mobile */
-    #recent-content .container > div {
+    #recent-content .container>div {
         grid-template-columns: 1fr !important;
     }
 
