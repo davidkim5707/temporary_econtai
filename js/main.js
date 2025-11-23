@@ -7,7 +7,7 @@
 // Active Navigation Highlighting
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Get current page filename
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (dropdownToggle && dropdown) {
         // Prevent default link behavior for dropdown toggle
-        dropdownToggle.addEventListener('click', function(e) {
+        dropdownToggle.addEventListener('click', function (e) {
             e.preventDefault();
             dropdown.classList.toggle('active');
         });
 
         // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('active');
             }
@@ -82,13 +82,8 @@ const mobileMenuButton = document.querySelector('.menu-toggle');
 const navLinksContainer = document.querySelector('.nav-links');
 
 if (mobileMenuButton && navLinksContainer) {
-    mobileMenuButton.addEventListener('click', function() {
+    mobileMenuButton.addEventListener('click', function () {
         navLinksContainer.classList.toggle('active');
-        // Toggle icon between hamburger and X
-        if (navLinksContainer.classList.contains('active')) {
-            mobileMenuButton.innerHTML = '✕';
-        } else {
-            mobileMenuButton.innerHTML = '☰';
-        }
+        mobileMenuButton.classList.toggle('active');
     });
 }
