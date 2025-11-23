@@ -34,53 +34,55 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ============================================
-    // Mobile Menu & Navigation Initialization
-    // ============================================
-
-    function initializeNavigation() {
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.querySelector('.menu-toggle');
-        const navLinksContainer = document.querySelector('.nav-links');
-
-        if (mobileMenuButton && navLinksContainer) {
-            // Remove old event listeners to prevent duplicates if called multiple times
-            const newButton = mobileMenuButton.cloneNode(true);
-            mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
-
-            newButton.addEventListener('click', function () {
-                navLinksContainer.classList.toggle('active');
-                newButton.classList.toggle('active');
-            });
-        }
-
-        // Dropdown menu functionality
-        const dropdown = document.querySelector('.dropdown');
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-
-        if (dropdownToggle && dropdown) {
-            // Remove old event listeners
-            const newToggle = dropdownToggle.cloneNode(true);
-            dropdownToggle.parentNode.replaceChild(newToggle, dropdownToggle);
-
-            newToggle.addEventListener('click', function (e) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        }
-    }
-
     // Make available globally
     window.initializeNavigation = initializeNavigation;
+});
 
-    // Try to initialize on load (for static pages)
-    document.addEventListener('DOMContentLoaded', function () {
-        initializeNavigation();
-    });
+// ============================================
+// Mobile Menu & Navigation Initialization
+// ============================================
+
+function initializeNavigation() {
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (mobileMenuButton && navLinksContainer) {
+        // Remove old event listeners to prevent duplicates
+        const newButton = mobileMenuButton.cloneNode(true);
+        mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
+
+        newButton.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent any default behavior
+            e.stopPropagation(); // Stop bubbling
+            navLinksContainer.classList.toggle('active');
+            newButton.classList.toggle('active');
+            console.log('Mobile menu toggled'); // Debug log
+        });
+    }
+
+    // Dropdown menu functionality
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+    if (dropdownToggle && dropdown) {
+        // Remove old event listeners
+        const newToggle = dropdownToggle.cloneNode(true);
+        dropdownToggle.parentNode.replaceChild(newToggle, dropdownToggle);
+
+        newToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Export again just in case
+window.initializeNavigation = initializeNavigation;
