@@ -34,50 +34,49 @@ function renderInsightsEvents(containerId, count = null) {
         return;
     }
 
-    // Generate HTML for each event with "In the News" layout
-    const eventsHTML = eventsToRender.map((event) => {
-        // Media section (YouTube or Image) - matches insights-news.js format
+    // Generate HTML for each event with unified card layout
+    const eventsHTML = `
+        <div class="unified-grid">
+            ${eventsToRender.map((event) => {
+        // Media section (YouTube or Image)
         let mediaSection = '';
         if (event.mediaType === 'youtube' && event.mediaUrl) {
             mediaSection = `
-                <div style="flex-shrink: 0; width: 200px; min-width: 200px;">
-                    <iframe
-                        width="200"
-                        height="113"
-                        src="${event.mediaUrl}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        style="border-radius: 4px;">
-                    </iframe>
-                    ${event.mediaCaption ? `<p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; font-style: italic;">${event.mediaCaption}</p>` : ''}
-                </div>
-            `;
+                        <div style="margin-bottom: 1rem; border-radius: 4px; overflow: hidden;">
+                            <iframe
+                                width="100%"
+                                height="150"
+                                src="${event.mediaUrl}"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                style="display: block;">
+                            </iframe>
+                        </div>
+                    `;
         } else if (event.mediaType === 'image' && event.mediaUrl) {
             mediaSection = `
-                <div style="flex-shrink: 0; width: 200px; min-width: 200px;">
-                    <img src="${event.mediaUrl}" alt="${event.title}" style="width: 100%; height: auto; border-radius: 4px;">
-                    ${event.mediaCaption ? `<p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; font-style: italic;">${event.mediaCaption}</p>` : ''}
-                </div>
-            `;
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${event.mediaUrl}" alt="${event.title}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;">
+                        </div>
+                    `;
         }
 
         return `
-            <div style="padding: 2.5rem 0; margin-bottom: 2rem; border-bottom: 1px solid #e0e0e0;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                    ${mediaSection}
-                    <div style="flex: 1; min-width: 300px;">
-                        <div style="color: #E57200; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">${event.date}</div>
-                        <h3 style="color: #232D4B; font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">${event.title}</h3>
-                        <p style="color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                            ${event.description}
-                        </p>
-                        ${event.url ? `<a href="${event.url}" target="_blank" style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1rem;">${event.linkText || 'Learn More'} →</a>` : ''}
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+                    <article class="unified-card">
+                        <div class="post-label">Event</div>
+                        ${mediaSection}
+                        <h3>${event.title}</h3>
+                        <div class="meta-info">
+                            <span class="date">${event.date}</span>
+                        </div>
+                        <p class="description">${event.description}</p>
+                        ${event.url ? `<a href="${event.url}" target="_blank" class="read-more">${event.linkText || 'Learn More'} →</a>` : ''}
+                    </article>
+                `;
+    }).join('')}
+        </div>
+    `;
 
     container.innerHTML = eventsHTML;
 }
@@ -85,7 +84,7 @@ function renderInsightsEvents(containerId, count = null) {
 /**
  * Initialize insights events rendering when DOM is loaded
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Wait for events-data.js to load
     if (window.getEventsData) {
         renderInsightsEvents('insights-events-container');

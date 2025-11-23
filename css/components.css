@@ -18,13 +18,13 @@
     padding: 2.5rem;
     background: white;
     border-left: 5px solid var(--uva-orange);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .mission-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .mission-card h3 {
@@ -50,7 +50,7 @@
     margin-bottom: 2rem;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     counter-increment: objective-counter;
     transition: transform 0.3s, box-shadow 0.3s;
     border-left: 4px solid transparent;
@@ -58,7 +58,7 @@
 
 .objective:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-left-color: var(--uva-orange);
 }
 
@@ -750,17 +750,23 @@
    Strategic Objectives Image - Dynamic Styling
    ============================================ */
 
+.strategic-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0;
+}
+
 .strategic-objectives-image {
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation: fadeInUp 0.8s ease-out;
-    will-change: transform, box-shadow;
+    will-change: transform;
 }
 
 .strategic-objectives-image:hover {
-    transform: scale(1.02) translateY(-4px);
-    box-shadow: 0 8px 24px rgba(35, 45, 75, 0.15);
+    transform: scale(1.02);
 }
 
 /* Fade-in animation on page load */
@@ -769,6 +775,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -777,13 +784,100 @@
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
-    .strategic-objectives-image {
-        border-radius: 8px;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
     .strategic-objectives-image:hover {
-        transform: scale(1.01) translateY(-2px);
-        box-shadow: 0 6px 18px rgba(35, 45, 75, 0.12);
+        transform: scale(1.01);
     }
+}
+
+/* ============================================
+   Unified Compact Card Styles (Our Work Page)
+   ============================================ */
+
+.unified-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.unified-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--uva-orange);
+}
+
+.post-label {
+    display: inline-block;
+    color: var(--uva-orange);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.unified-card h3 {
+    color: var(--uva-navy);
+    font-size: 1.1rem;
+    /* Smaller title */
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 0.75rem 0;
+}
+
+.unified-card h3 a {
+    color: var(--uva-navy);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.unified-card h3 a:hover {
+    color: var(--uva-orange);
+}
+
+.unified-card .meta-info {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.unified-card .description {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    /* Limit to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.unified-card .read-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--uva-orange);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.unified-card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* Grid Layout for Unified Cards */
+.unified-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
 }

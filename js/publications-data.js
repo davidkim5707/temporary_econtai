@@ -432,23 +432,19 @@ function renderResearchPapers(containerId, options = {}) {
 
     // Create grid container wrapper
     const gridHTML = `
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
+        <div class="unified-grid">
             ${papers.map((paper, index) => `
-                <article style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column;"
-                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.12)';"
-                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.08)';">
-                    ${index < 3 ? '<div class="paper-badge">Recent Paper</div>' : ''}
-                    <h3 class="paper-title">
+                <article class="unified-card">
+                    <div class="post-label">${paper.type || 'Research Paper'}</div>
+                    <h3>
                         <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''}>${paper.title}</a>
                     </h3>
-                    <div class="paper-meta">
-                        <span class="paper-authors">${paper.authors}</span>
-                        <span class="paper-date">${formatDate(paper.date)}</span>
+                    <div class="meta-info">
+                        <span class="authors">${paper.authors}</span> • 
+                        <span class="date">${formatDate(paper.date)}</span>
                     </div>
-                    <p class="paper-description" style="flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${paper.description}</p>
-                    <div class="paper-links">
-                        <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''} class="paper-link">Read Paper →</a>
-                    </div>
+                    <p class="description">${paper.description}</p>
+                    <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''} class="read-more">Read Paper →</a>
                 </article>
             `).join('')}
         </div>
@@ -476,22 +472,19 @@ function renderWorkingPapers(containerId, options = {}) {
 
     // Create grid container wrapper
     const gridHTML = `
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
+        <div class="unified-grid">
             ${papers.map((paper, index) => `
-                <article style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column;"
-                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.12)';"
-                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.08)';">
-                    <h3 class="paper-title">
+                <article class="unified-card">
+                    <div class="post-label">${paper.type || 'Working Paper'}</div>
+                    <h3>
                         <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''}>${paper.title}</a>
                     </h3>
-                    <div class="paper-meta">
-                        <span class="paper-authors">${paper.authors}</span>
-                        <span class="paper-date">${formatDate(paper.date)}</span>
+                    <div class="meta-info">
+                        <span class="authors">${paper.authors}</span> • 
+                        <span class="date">${formatDate(paper.date)}</span>
                     </div>
-                    <p class="paper-description" style="flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${paper.description}</p>
-                    <div class="paper-links">
-                        <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''} class="paper-link">Read Paper →</a>
-                    </div>
+                    <p class="description">${paper.description}</p>
+                    <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''} class="read-more">Read Paper →</a>
                 </article>
             `).join('')}
         </div>

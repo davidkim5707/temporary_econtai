@@ -33,33 +33,30 @@ function renderInsightsNews(containerId, count = null) {
         return;
     }
 
-    // Generate HTML for each news item with professional card layout
-    const newsHTML = newsToRender.map((item, index) => {
-        // Handle items with or without images
-        const imageSection = item.image ? `
-            <div style="flex-shrink: 0; width: 200px; min-width: 200px;">
-                <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; border-radius: 4px;">
-                ${item.imageCaption ? `<p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; font-style: italic;">${item.imageCaption}</p>` : ''}
-            </div>
-        ` : '';
-
-        return `
-            <div style="padding: 2.5rem 0; margin-bottom: 2rem; border-bottom: 1px solid #e0e0e0;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                    ${imageSection}
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 style="color: #232D4B; font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">${item.title}</h3>
-                        <p style="color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                            ${item.excerpt}
-                        </p>
-                        <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1rem;">
-                            Read More →
-                        </a>
+    // Generate HTML for each news item with unified card layout
+    const newsHTML = `
+        <div class="unified-grid">
+            ${newsToRender.map((item) => `
+                <article class="unified-card">
+                    <div class="post-label">${item.type || 'News'}</div>
+                    ${item.image ? `
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;">
+                        </div>
+                    ` : ''}
+                    <h3>
+                        <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''}>${item.title}</a>
+                    </h3>
+                    <div class="meta-info">
+                        <span class="source">${item.source}</span> • 
+                        <span class="date">${item.date}</span>
                     </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+                    <p class="description">${item.excerpt}</p>
+                    <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} class="read-more">Read More →</a>
+                </article>
+            `).join('')}
+        </div>
+    `;
 
     container.innerHTML = newsHTML;
 }
@@ -67,7 +64,7 @@ function renderInsightsNews(containerId, count = null) {
 /**
  * Initialize insights news rendering when DOM is loaded
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Wait for news-data.js to load
     if (window.getNewsItems) {
         renderInsightsNews('insights-news-container');
@@ -108,33 +105,30 @@ function renderFilteredNewsByType(containerId, types = ['news', 'commentary', 'b
         return;
     }
 
-    // Generate HTML for each news item with professional card layout
-    const newsHTML = newsToRender.map((item, index) => {
-        // Handle items with or without images
-        const imageSection = item.image ? `
-            <div style="flex-shrink: 0; width: 200px; min-width: 200px;">
-                <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; border-radius: 4px;">
-                ${item.imageCaption ? `<p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; font-style: italic;">${item.imageCaption}</p>` : ''}
-            </div>
-        ` : '';
-
-        return `
-            <div style="padding: 2.5rem 0; margin-bottom: 2rem; border-bottom: 1px solid #e0e0e0;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                    ${imageSection}
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 style="color: #232D4B; font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">${item.title}</h3>
-                        <p style="color: #333; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                            ${item.excerpt}
-                        </p>
-                        <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} style="color: #E57200; text-decoration: none; font-weight: 600; font-size: 1rem;">
-                            Read More →
-                        </a>
+    // Generate HTML for each news item with unified card layout
+    const newsHTML = `
+        <div class="unified-grid">
+            ${newsToRender.map((item) => `
+                <article class="unified-card">
+                    <div class="post-label">${item.type || 'News'}</div>
+                    ${item.image ? `
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;">
+                        </div>
+                    ` : ''}
+                    <h3>
+                        <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''}>${item.title}</a>
+                    </h3>
+                    <div class="meta-info">
+                        <span class="source">${item.source}</span> • 
+                        <span class="date">${item.date}</span>
                     </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+                    <p class="description">${item.excerpt}</p>
+                    <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''} class="read-more">Read More →</a>
+                </article>
+            `).join('')}
+        </div>
+    `;
 
     container.innerHTML = newsHTML;
 }
