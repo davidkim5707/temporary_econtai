@@ -41,9 +41,28 @@ body {
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    transition: max-width 0.3s ease;
+}
+
+/* Large Screen Optimization */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    html {
+        font-size: 18px; /* Slightly larger base font for big screens */
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
 }
 
 /* ============================================
@@ -587,7 +606,14 @@ footer p {
     /* Microsoft Forms iframe responsive */
     iframe[src*="forms.office.com"] {
         width: 100% !important;
-        min-width: 350px;
         height: 600px !important;
     }
+}
+
+/* Global Responsive Iframe for Forms */
+iframe[src*="forms.office.com"] {
+    width: 100% !important;
+    min-height: 500px;
+    border: none;
+    display: block;
 }
