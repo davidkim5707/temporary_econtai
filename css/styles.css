@@ -430,7 +430,8 @@ footer p {
     }
 
     .menu-toggle {
-        display: block;
+        display: flex;
+        /* Use flex to align bars */
     }
 
     .logo-img {
