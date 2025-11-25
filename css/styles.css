@@ -441,6 +441,7 @@ footer p {
 
     .hero h1 {
         font-size: 2rem;
+        font-weight: 700 !important;
     }
 
     .hero .subtitle {
