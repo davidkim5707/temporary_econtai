@@ -11,9 +11,9 @@
 /**
  * Render news items into the insights page with professional card layout
  * @param {string} containerId - ID of the container element to render into
- * @param {number} count - Number of news items to display (default: all)
+ * @param {number} limit - Number of news items to display initially (default: 3, null for all)
  */
-function renderInsightsNews(containerId, count = null) {
+function renderInsightsNews(containerId, limit = 3) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id "${containerId}" not found`);
@@ -21,8 +21,11 @@ function renderInsightsNews(containerId, count = null) {
     }
 
     // Get news items from the global data source
-    const items = window.getNewsItems ? window.getNewsItems() : [];
-    const newsToRender = count ? items.slice(0, count) : items;
+    const allItems = window.getNewsItems ? window.getNewsItems() : [];
+    const totalItems = allItems.length;
+    const showAll = limit === null;
+    const newsToRender = showAll ? allItems : allItems.slice(0, limit);
+    const hasMore = !showAll && totalItems > limit;
 
     if (newsToRender.length === 0) {
         container.innerHTML = `
@@ -48,7 +51,7 @@ function renderInsightsNews(containerId, count = null) {
                         <a href="${item.url}" ${item.url.startsWith('http') ? 'target="_blank"' : ''}>${item.title}</a>
                     </h3>
                     <div class="meta-info">
-                        <span class="source">${item.source}</span> • 
+                        <span class="source">${item.source}</span> •
                         <span class="date">${item.date}</span>
                     </div>
                     <p class="description">${item.excerpt}</p>
@@ -56,6 +59,14 @@ function renderInsightsNews(containerId, count = null) {
                 </article>
             `).join('')}
         </div>
+        ${hasMore ? `
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="renderInsightsNews('${containerId}', null)"
+                    style="display: inline-block; background: #E57200; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: none;">
+                    View more here (${totalItems - limit} more)
+                </button>
+            </div>
+        ` : ''}
     `;
 
     container.innerHTML = newsHTML;
@@ -67,7 +78,7 @@ function renderInsightsNews(containerId, count = null) {
 document.addEventListener('DOMContentLoaded', function () {
     // Wait for news-data.js to load
     if (window.getNewsItems) {
-        renderInsightsNews('insights-news-container');
+        renderInsightsNews('insights-news-container', 3);
     } else {
         console.warn('news-data.js not loaded. Unable to render insights news.');
     }

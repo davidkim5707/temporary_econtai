@@ -117,13 +117,13 @@
     <!-- Initialize research papers and working papers rendering -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Render all research papers
+            // Render research papers with limit of 6
             if (window.renderResearchPapers) {
-                window.renderResearchPapers('research-papers-container');
+                window.renderResearchPapers('research-papers-container', 6);
             }
-            // Render all working papers
+            // Render working papers with limit of 6
             if (window.renderWorkingPapers) {
-                window.renderWorkingPapers('working-papers-container');
+                window.renderWorkingPapers('working-papers-container', 6);
             }
         });
     </script>

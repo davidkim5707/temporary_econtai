@@ -421,26 +421,30 @@ function renderPublications(containerId, count = 3) {
 /**
  * Render all research papers on research page
  * @param {string} containerId - ID of the container element
- * @param {object} options - Rendering options
+ * @param {number} limit - Number of papers to display initially (default: 6, null for all)
  */
-function renderResearchPapers(containerId, options = {}) {
+function renderResearchPapers(containerId, limit = 6) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
     // Get all research papers sorted by date (most recent first)
-    const papers = [...publicationsData.research].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const allPapers = [...publicationsData.research].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const totalPapers = allPapers.length;
+    const showAll = limit === null;
+    const papersToShow = showAll ? allPapers : allPapers.slice(0, limit);
+    const hasMore = !showAll && totalPapers > limit;
 
     // Create grid container wrapper
     const gridHTML = `
         <div class="unified-grid">
-            ${papers.map((paper, index) => `
+            ${papersToShow.map((paper, index) => `
                 <article class="unified-card">
                     <div class="post-label">${paper.type || 'Research Paper'}</div>
                     <h3>
                         <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''}>${paper.title}</a>
                     </h3>
                     <div class="meta-info">
-                        <span class="authors">${paper.authors}</span> • 
+                        <span class="authors">${paper.authors}</span> •
                         <span class="date">${formatDate(paper.date)}</span>
                     </div>
                     <p class="description">${paper.description}</p>
@@ -448,6 +452,14 @@ function renderResearchPapers(containerId, options = {}) {
                 </article>
             `).join('')}
         </div>
+        ${hasMore ? `
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="renderResearchPapers('${containerId}', null)"
+                    style="display: inline-block; background: #E57200; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: none;">
+                    View more here (${totalPapers - limit} more)
+                </button>
+            </div>
+        ` : ''}
     `;
 
     container.innerHTML = gridHTML;
@@ -461,26 +473,30 @@ function renderResearchPapers(containerId, options = {}) {
 /**
  * Render working papers into a container
  * @param {string} containerId - ID of the container element
- * @param {object} options - Rendering options
+ * @param {number} limit - Number of papers to display initially (default: 6, null for all)
  */
-function renderWorkingPapers(containerId, options = {}) {
+function renderWorkingPapers(containerId, limit = 6) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
     // Get all working papers sorted by date (most recent first)
-    const papers = [...publicationsData.workingPapers].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const allPapers = [...publicationsData.workingPapers].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const totalPapers = allPapers.length;
+    const showAll = limit === null;
+    const papersToShow = showAll ? allPapers : allPapers.slice(0, limit);
+    const hasMore = !showAll && totalPapers > limit;
 
     // Create grid container wrapper
     const gridHTML = `
         <div class="unified-grid">
-            ${papers.map((paper, index) => `
+            ${papersToShow.map((paper, index) => `
                 <article class="unified-card">
                     <div class="post-label">${paper.type || 'Working Paper'}</div>
                     <h3>
                         <a href="${paper.url}" ${paper.url.startsWith('http') ? 'target="_blank"' : ''}>${paper.title}</a>
                     </h3>
                     <div class="meta-info">
-                        <span class="authors">${paper.authors}</span> • 
+                        <span class="authors">${paper.authors}</span> •
                         <span class="date">${formatDate(paper.date)}</span>
                     </div>
                     <p class="description">${paper.description}</p>
@@ -488,6 +504,14 @@ function renderWorkingPapers(containerId, options = {}) {
                 </article>
             `).join('')}
         </div>
+        ${hasMore ? `
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="renderWorkingPapers('${containerId}', null)"
+                    style="display: inline-block; background: #E57200; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: none;">
+                    View more here (${totalPapers - limit} more)
+                </button>
+            </div>
+        ` : ''}
     `;
 
     container.innerHTML = gridHTML;

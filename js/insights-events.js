@@ -12,9 +12,9 @@
 /**
  * Render events into the insights page with "In the News" layout
  * @param {string} containerId - ID of the container element to render into
- * @param {number} count - Number of events to display (default: all)
+ * @param {number} limit - Number of events to display initially (default: 3, null for all)
  */
-function renderInsightsEvents(containerId, count = null) {
+function renderInsightsEvents(containerId, limit = 3) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id "${containerId}" not found`);
@@ -22,8 +22,11 @@ function renderInsightsEvents(containerId, count = null) {
     }
 
     // Get events from the global data source
-    const items = window.getEventsData ? window.getEventsData() : [];
-    const eventsToRender = count ? items.slice(0, count) : items;
+    const allItems = window.getEventsData ? window.getEventsData() : [];
+    const totalItems = allItems.length;
+    const showAll = limit === null;
+    const eventsToRender = showAll ? allItems : allItems.slice(0, limit);
+    const hasMore = !showAll && totalItems > limit;
 
     if (eventsToRender.length === 0) {
         container.innerHTML = `
@@ -76,6 +79,14 @@ function renderInsightsEvents(containerId, count = null) {
                 `;
     }).join('')}
         </div>
+        ${hasMore ? `
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="renderInsightsEvents('${containerId}', null)"
+                    style="display: inline-block; background: #E57200; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: none;">
+                    View more here (${totalItems - limit} more)
+                </button>
+            </div>
+        ` : ''}
     `;
 
     container.innerHTML = eventsHTML;
@@ -87,7 +98,7 @@ function renderInsightsEvents(containerId, count = null) {
 document.addEventListener('DOMContentLoaded', function () {
     // Wait for events-data.js to load
     if (window.getEventsData) {
-        renderInsightsEvents('insights-events-container');
+        renderInsightsEvents('insights-events-container', 3);
     } else {
         console.warn('events-data.js not loaded. Unable to render insights events.');
     }
