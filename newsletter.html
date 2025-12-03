@@ -12,7 +12,7 @@
 
     <!-- Begin Constant Contact Active Forms -->
     <script> var _ctct_m = "95b41a9981f6ecf3ea0a395e1f0a5aa0"; </script>
-    <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+    <script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
     <!-- End Constant Contact Active Forms -->
 </head>
 
@@ -38,11 +38,9 @@
                     </p>
 
                     <!-- Constant Contact Newsletter Signup -->
-                    <div style="display: flex; justify-content: center; align-items: center; min-height: 480px;">
-                        <!-- Begin Constant Contact Inline Form Code -->
-                        <div class="ctct-inline-form" data-form-id="2721a4e7-ae3d-4044-aa54-519106b62d7b"></div>
-                        <!-- End Constant Contact Inline Form Code -->
-                    </div>
+                    <!-- Begin Constant Contact Inline Form Code -->
+                    <div class="ctct-inline-form" data-form-id="2721a4e7-ae3d-4044-aa54-519106b62d7b"></div>
+                    <!-- End Constant Contact Inline Form Code -->
                 </div>
             </div>
         </div>
@@ -66,6 +64,26 @@
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+
+    <!-- Debug and initialize Constant Contact form -->
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Page loaded. Checking for Constant Contact form...');
+            console.log('_ctct_m variable:', window._ctct_m);
+            console.log('Form div:', document.querySelector('.ctct-inline-form'));
+
+            // Give the Constant Contact script time to initialize
+            setTimeout(function() {
+                const formDiv = document.querySelector('.ctct-inline-form');
+                if (formDiv && !formDiv.innerHTML.trim()) {
+                    console.error('Constant Contact form did not render. The form div is empty.');
+                    console.log('Form ID:', formDiv.getAttribute('data-form-id'));
+                } else if (formDiv && formDiv.innerHTML.trim()) {
+                    console.log('Constant Contact form loaded successfully!');
+                }
+            }, 3000);
+        });
+    </script>
 </body>
 
 </html>
