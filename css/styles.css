@@ -697,17 +697,58 @@ footer p {
         gap: 2rem !important;
     }
 
-    /* Microsoft Forms iframe responsive */
-    iframe[src*="forms.office.com"] {
+    /* Constant Contact form responsive */
+    .ctct-inline-form {
         width: 100% !important;
-        height: 600px !important;
+        max-width: 600px;
+        margin: 0 auto;
     }
 }
 
-/* Global Responsive Iframe for Forms */
-iframe[src*="forms.office.com"] {
+/* ============================================
+   Constant Contact Form Styling
+   ============================================ */
+
+/* Constant Contact inline form container */
+.ctct-inline-form {
     width: 100% !important;
-    min-height: 500px;
-    border: none;
-    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Constant Contact form styling with UVA brand colors */
+.ctct-inline-form input[type="email"],
+.ctct-inline-form input[type="text"] {
+    border: 2px solid var(--uva-navy) !important;
+    border-radius: 4px !important;
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    transition: border-color 0.3s !important;
+}
+
+.ctct-inline-form input[type="email"]:focus,
+.ctct-inline-form input[type="text"]:focus {
+    border-color: var(--uva-orange) !important;
+    outline: none !important;
+}
+
+/* Constant Contact submit button with UVA orange */
+.ctct-inline-form button[type="submit"],
+.ctct-inline-form input[type="submit"] {
+    background-color: var(--uva-orange) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 0.75rem 2rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+}
+
+.ctct-inline-form button[type="submit"]:hover,
+.ctct-inline-form input[type="submit"]:hover {
+    background-color: var(--uva-orange-dark) !important;
 }
